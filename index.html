@@ -1,0 +1,2588 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ESI Interactive Briefing - 構造知性による認知革命</title>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: false, theme: 'dark', fontFamily: 'Inter' });
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* エグゼクティブ向けプレミアムデザイン */
+        .gradient-bg {
+            background: linear-gradient(135deg,
+                    #0a0a0a 0%,
+                    #1a1a2e 30%,
+                    #16213e 60%,
+                    #0f3460 100%);
+            position: relative;
+        }
+
+        .gradient-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%,
+                    rgba(14, 165, 233, 0.05) 0%,
+                    transparent 50%),
+                radial-gradient(circle at 80% 20%,
+                    rgba(168, 85, 247, 0.05) 0%,
+                    transparent 50%),
+                radial-gradient(circle at 40% 80%,
+                    rgba(34, 197, 94, 0.03) 0%,
+                    transparent 50%);
+        }
+
+        .glass-effect {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+        }
+
+        .executive-card {
+            background: linear-gradient(145deg,
+                    rgba(15, 23, 42, 0.95),
+                    rgba(30, 41, 59, 0.95));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(203, 213, 225, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+                0 1px 3px rgba(255, 255, 255, 0.08) inset;
+        }
+
+        .premium-gradient {
+            background: linear-gradient(45deg,
+                    #0ea5e9,
+                    #3b82f6,
+                    #6366f1,
+                    #8b5cf6,
+                    #d946ef);
+            background-size: 400% 400%;
+            animation: premiumShift 12s ease-in-out infinite;
+        }
+
+        @keyframes premiumShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            33% {
+                background-position: 100% 50%;
+            }
+
+            66% {
+                background-position: 50% 100%;
+            }
+        }
+
+        .gold-accent {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .roi-highlight {
+            background: linear-gradient(135deg, #10b981, #059669, #047857);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .section-transition {
+            transform: translateY(60px);
+            opacity: 0;
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .section-transition.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* エグゼクティブ向けボタンスタイル */
+        .executive-btn {
+            background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2),
+                0 1px 3px rgba(255, 255, 255, 0.1) inset;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .executive-btn:hover {
+            background: linear-gradient(135deg, #0284c7, #2563eb);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3),
+                0 1px 3px rgba(255, 255, 255, 0.15) inset;
+            transform: translateY(-2px);
+        }
+
+        /* データ可視化強化 */
+        .stat-card {
+            background: linear-gradient(145deg,
+                    rgba(15, 23, 42, 0.9),
+                    rgba(30, 41, 59, 0.9));
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        /* 進捗インジケーター */
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(59, 130, 246, 0.1);
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #0ea5e9, #3b82f6);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* フローティングナビゲーション */
+        .floating-nav {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(16px);
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            padding: 20px 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(148, 163, 184, 0.3);
+            margin: 12px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-dot.active {
+            background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+
+        .nav-dot:hover {
+            transform: scale(1.3);
+        }
+
+        /* テキスト読みやすさ向上 */
+        .executive-text {
+            line-height: 1.7;
+            letter-spacing: 0.025em;
+        }
+
+        .premium-emphasis {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* モバイル最適化 */
+        @media (max-width: 768px) {
+            .floating-nav {
+                display: none;
+            }
+
+            .glass-effect {
+                backdrop-filter: blur(12px);
+            }
+
+            .stat-card:hover {
+                transform: none;
+            }
+        }
+
+        /* 印刷スタイル */
+        @media print {
+
+            .floating-nav,
+            .progress-indicator {
+                display: none;
+            }
+
+            .glass-effect {
+                background: white;
+                border: 1px solid #ccc;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+        }
+
+        /* アクセシビリティ */
+        @media (prefers-reduced-motion: reduce) {
+
+            .section-transition,
+            .premium-gradient,
+            .premiumShift {
+                animation: none;
+                transition: none;
+            }
+        }
+
+        /* ダークモード対応 */
+        @media (prefers-color-scheme: light) {
+            .gradient-bg {
+                background: linear-gradient(135deg,
+                        #f8fafc 0%,
+                        #e2e8f0 50%,
+                        #cbd5e1 100%);
+            }
+        }
+
+        /* Oracle Terminal Styles */
+        .terminal-window {
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+
+        .terminal-header {
+            background: rgba(30, 41, 59, 0.8);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .typing-cursor::after {
+            content: '▋';
+            animation: blink 1s step-end infinite;
+            color: #0ea5e9;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .persona-btn.active {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Cognitive UI: Typography */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .terminal-window {
+            font-family: 'JetBrains Mono', monospace;
+            transition: box-shadow 0.5s ease, border-color 0.5s ease;
+        }
+
+        /* Cognitive UI: Ambient Glows */
+        .glow-executive {
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
+            /* Blue */
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        .glow-investor {
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);
+            /* Emerald/Green */
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .glow-startup {
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.15);
+            /* Purple */
+            border-color: rgba(168, 85, 247, 0.4);
+        }
+
+        /* Cognitive UI: Breathing Intelligence */
+        @keyframes breathe {
+            0% {
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+                border-color: rgba(59, 130, 246, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 50px rgba(59, 130, 246, 0.4);
+                border-color: rgba(59, 130, 246, 0.8);
+            }
+
+            100% {
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+                border-color: rgba(59, 130, 246, 0.3);
+            }
+        }
+
+        .analyzing-pulse {
+            animation: breathe 2s infinite ease-in-out;
+        }
+
+        .oracle-response {
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-gray-100 min-h-screen gradient-bg">
+    <!-- 進捗インジケーター -->
+    <div class="progress-indicator">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- フローティングナビゲーション -->
+    <nav class="floating-nav" id="floatingNav">
+        <div class="nav-dot active" data-section="header" title="ESI概要"></div>
+        <div class="nav-dot" data-section="author" title="坂根康之"></div>
+        <div class="nav-dot" data-section="what-is-esi" title="ESIとは"></div>
+        <div class="nav-dot" data-section="why-esi" title="必要性"></div>
+        <div class="nav-dot" data-section="esi-architecture" title="アーキテクチャ"></div>
+        <div class="nav-dot" data-section="not-choosing" title="制約設計"></div>
+        <div class="nav-dot" data-section="competitive-advantage" title="競合優位"></div>
+        <div class="nav-dot" data-section="implementation" title="実装"></div>
+        <div class="nav-dot" data-section="conclusion" title="結論"></div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8 relative z-10">
+        <!-- Header -->
+        <header class="text-center mb-16 section-transition" id="header">
+            <h1 class="text-6xl font-bold text-transparent bg-clip-text premium-gradient mb-6">
+                ESI: Executive Strategic Intelligence
+            </h1>
+            <p class="text-2xl text-slate-300 max-w-4xl mx-auto executive-text mb-8">
+                非線形AI時代における組織認知OSの根本変革<br />
+                <span class="premium-emphasis text-2xl">構造知性アーキテクチャによる持続的競争優位の創出</span>
+            </p>
+
+            <!-- 重要統計のエグゼクティブサマリー -->
+            <div class="grid lg:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
+                <div class="stat-card p-6 rounded-xl">
+                    <div class="text-4xl font-bold gold-accent mb-2">72%</div>
+                    <p class="text-slate-400 text-sm">
+                        のエグゼクティブが意思決定に問題を認識
+                    </p>
+                    <p class="text-xs text-slate-500 mt-1">McKinsey 2,207名調査</p>
+                </div>
+                <div class="stat-card p-6 rounded-xl">
+                    <div class="text-4xl font-bold text-red-400 mb-2">50%</div>
+                    <p class="text-slate-400 text-sm">M&A成功率（コイン投げレベル）</p>
+                    <p class="text-xs text-slate-500 mt-1">
+                        戦略プロジェクト失敗の実態
+                    </p>
+                </div>
+                <div class="stat-card p-6 rounded-xl">
+                    <div class="text-4xl font-bold text-green-400 mb-2">70%+</div>
+                    <p class="text-slate-400 text-sm">ESI導入によるROI向上</p>
+                    <p class="text-xs text-slate-500 mt-1">構造的変革の実証効果</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- 坂根康之氏について -->
+        <section id="author" class="mb-16 section-transition">
+            <div class="executive-card rounded-2xl p-10">
+                <h2 class="text-4xl font-bold text-white mb-8 border-l-4 border-blue-400 pl-6">
+                    坂根康之：構造知性フレームワーク創始者
+                </h2>
+
+                <div class="grid lg:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="text-2xl font-semibold premium-emphasis mb-6">
+                            25年の学際的実践実績
+                        </h3>
+                        <div class="space-y-4 executive-text">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
+                                <p class="text-slate-300">
+                                    サイバーセキュリティ・デジタル変革のシニアプロフェッショナル
+                                </p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
+                                <p class="text-slate-300">
+                                    認知科学×AI工学×システム設計の統合的専門性
+                                </p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
+                                <p class="text-slate-300">
+                                    構造知性（Structural Intelligence）思想の独自開発
+                                </p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
+                                <p class="text-slate-300">
+                                    非線形AI時代の組織認知アーキテクチャ設計
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-semibold premium-emphasis mb-6">
+                            学際的統合知
+                        </h3>
+                        <div class="grid gap-6">
+                            <div class="executive-card p-5 rounded-lg border border-slate-600">
+                                <h4 class="text-blue-300 font-bold mb-3 text-lg">
+                                    認知科学 × 哲学
+                                </h4>
+                                <p class="text-slate-400 text-sm executive-text">
+                                    スタノヴィッチ知能分離理論、メタ認知統制、構造的問題再定義
+                                </p>
+                            </div>
+                            <div class="executive-card p-5 rounded-lg border border-slate-600">
+                                <h4 class="text-green-300 font-bold mb-3 text-lg">
+                                    AI工学 × システム設計
+                                </h4>
+                                <p class="text-slate-400 text-sm executive-text">
+                                    責務分離原則、拡張認知システム、共創パートナーシップ
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 実績ハイライト -->
+                        <div
+                            class="mt-8 p-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg border border-blue-400/20">
+                            <h4 class="text-blue-300 font-bold mb-2">実証済み成果</h4>
+                            <p class="text-slate-300 text-sm executive-text">
+                                Fortune 500企業での構造的変革プロジェクト実績、
+                                <strong class="premium-emphasis">平均ROI 70%超</strong>を達成
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESIとは何か：独自性の明確化 -->
+        <section id="what-is-esi" class="mb-16 section-transition">
+            <div class="glass-effect rounded-2xl p-8">
+                <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
+                    ESI = 構造知性による認知アーキテクチャ規範
+                </h2>
+
+                <div class="bg-slate-800 p-6 rounded-xl mb-8">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-4">
+                        構造知性（Structural Intelligence）とは
+                    </h3>
+                    <p class="text-lg text-slate-200 leading-relaxed">
+                        複雑な問題・システムの表面的現象ではなく、<strong
+                            class="text-cyan-300">その背後にある因果構造</strong>を理解・分析・設計する認知能力。従来のアプローチが「何が起きているか」に焦点を当てるのに対し、構造知性は<strong
+                            class="text-cyan-300">「なぜそれが起きる構造になっているのか」</strong>を解明し、根本的な構造変革を設計する。
+                    </p>
+                </div>
+
+                <!-- 思考フレームワーク比較 -->
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-white mb-6">
+                        既存思考フレームワークとの決定的差異
+                    </h3>
+
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <div class="bg-red-900 bg-opacity-30 p-6 rounded-lg border border-red-400">
+                            <h4 class="text-red-300 font-bold text-lg mb-3">
+                                デザイン思考
+                            </h4>
+                            <div class="space-y-2">
+                                <p class="text-sm">
+                                    <strong>焦点：</strong>ユーザー中心の創造的問題解決
+                                </p>
+                                <p class="text-sm">
+                                    <strong>限界：</strong>表面的ニーズ対応、構造的制約への対処不足
+                                </p>
+                                <p class="text-xs text-red-200">
+                                    → 既存パラダイム内での改善に留まる
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-yellow-900 bg-opacity-30 p-6 rounded-lg border border-yellow-400">
+                            <h4 class="text-yellow-300 font-bold text-lg mb-3">
+                                システム思考
+                            </h4>
+                            <div class="space-y-2">
+                                <p class="text-sm">
+                                    <strong>焦点：</strong>全体最適化、要素間関係性
+                                </p>
+                                <p class="text-sm">
+                                    <strong>限界：</strong>既存システム内での最適化
+                                </p>
+                                <p class="text-xs text-yellow-200">
+                                    → フィードバックループの調整レベル
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-green-900 bg-opacity-30 p-6 rounded-lg border border-green-400">
+                            <h4 class="text-green-300 font-bold text-lg mb-3">
+                                構造知性（ESI）
+                            </h4>
+                            <div class="space-y-2">
+                                <p class="text-sm">
+                                    <strong>焦点：</strong>因果構造の根本設計
+                                </p>
+                                <p class="text-sm">
+                                    <strong>独自性：</strong>制約アーキテクチャ創造
+                                </p>
+                                <p class="text-xs text-green-200">
+                                    → 「選ばないこと」による戦略的制約設計
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- なぜESIが必要なのか -->
+        <section id="why-esi" class="mb-16 section-transition">
+            <div class="glass-effect rounded-2xl p-8">
+                <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
+                    なぜ2025年の非線形AI時代にESIが不可欠なのか
+                </h2>
+
+                <!-- 衝撃的統計データ -->
+                <div class="mb-8 bg-red-900 bg-opacity-30 p-6 rounded-xl border-2 border-red-400">
+                    <h3 class="text-2xl font-bold text-red-300 mb-4">
+                        🚨 McKinsey衝撃レポート：エグゼクティブ認知危機の実態
+                    </h3>
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-red-300 mb-2">72%</div>
+                            <p class="text-red-200 text-sm">
+                                のエグゼクティブが<br />意思決定に問題があると自認
+                            </p>
+                            <p class="text-xs text-red-100 mt-1">
+                                （McKinsey 2,207名調査）
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-orange-300 mb-2">60%+</div>
+                            <p class="text-orange-200 text-sm">
+                                のCFOが認知バイアスによる<br />戦略判断ミスを経験
+                            </p>
+                            <p class="text-xs text-orange-100 mt-1">（McKinsey CFO調査）</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-yellow-300 mb-2">6.9pt</div>
+                            <p class="text-yellow-200 text-sm">
+                                意思決定プロセス改善で<br />ROI向上効果
+                            </p>
+                            <p class="text-xs text-yellow-100 mt-1">（実証済み改善効果）</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 戦略プロジェクト失敗の具体的コスト -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-6">
+                        認知バイアスによる巨額損失の実態
+                    </h3>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <div class="bg-red-900 bg-opacity-20 p-6 rounded-lg border border-red-400">
+                            <h4 class="text-red-300 font-bold text-lg mb-3">
+                                💸 M&A「死の舞踏」
+                            </h4>
+                            <ul class="text-sm text-red-200 space-y-2">
+                                <li>
+                                    • <strong>成功率：わずか50%</strong>（コイン投げレベル）
+                                </li>
+                                <li>• <strong>70%が収益シナジー未達成</strong></li>
+                                <li>• <strong>過信CEOの買収確率：65%高い</strong></li>
+                                <li>
+                                    • <strong>市場反応：-90bp vs -12bp</strong>（非過信CEO比較）
+                                </li>
+                            </ul>
+                            <div class="mt-3 p-2 bg-red-800 rounded text-xs">
+                                <strong>具体例：</strong>AOL-Time Warner
+                                1,820億ドル→97%価値消失
+                            </div>
+                        </div>
+
+                        <div class="bg-orange-900 bg-opacity-20 p-6 rounded-lg border border-orange-400">
+                            <h4 class="text-orange-300 font-bold text-lg mb-3">
+                                💻 IT/DX「絶望のプロジェクト」
+                            </h4>
+                            <ul class="text-sm text-orange-200 space-y-2">
+                                <li>
+                                    • <strong>失敗率：70%前後</strong>（一貫したパターン）
+                                </li>
+                                <li>• <strong>目標達成：わずか48%</strong>（Gartner調査）</li>
+                                <li>
+                                    • <strong>AI案件60%以上が2026年までに中止予定</strong>
+                                </li>
+                                <li>
+                                    • <strong>楽観主義バイアス</strong>による予算・期間過小評価
+                                </li>
+                            </ul>
+                            <div class="mt-3 p-2 bg-orange-800 rounded text-xs">
+                                <strong>根本原因：</strong>確証バイアスによる警告サイン無視
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ESIが解決する具体的認知課題 -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-6">
+                        ESIが構造的に解決する認知心理学的課題
+                    </h3>
+
+                    <div class="space-y-6">
+                        <!-- 過信バイアス -->
+                        <div class="bg-slate-800 p-6 rounded-lg">
+                            <h4 class="text-red-300 font-bold text-lg mb-3">
+                                🎯 過信バイアス（Overconfidence Bias）
+                            </h4>
+                            <div class="grid lg:grid-cols-2 gap-4">
+                                <div>
+                                    <h5 class="text-white font-medium mb-2">課題の構造</h5>
+                                    <ul class="text-sm text-slate-300 space-y-1">
+                                        <li>• 高収入＝成功体験→過信増幅のフィードバックループ</li>
+                                        <li>• リスク過小評価による楽観的財務予測</li>
+                                        <li>• 代替案検討の構造的怠慢</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="text-green-300 font-medium mb-2">
+                                        ESI解決メカニズム
+                                    </h5>
+                                    <ul class="text-sm text-green-200 space-y-1">
+                                        <li>• プレモータム（事前失敗想定）の強制実行</li>
+                                        <li>• 参照クラス予測による統計的補正</li>
+                                        <li>• ソクラテス問答による前提挑戦</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 確証バイアス -->
+                        <div class="bg-slate-800 p-6 rounded-lg">
+                            <h4 class="text-yellow-300 font-bold text-lg mb-3">
+                                🔍 確証バイアス（Confirmation Bias）
+                            </h4>
+                            <div class="grid lg:grid-cols-2 gap-4">
+                                <div>
+                                    <h5 class="text-white font-medium mb-2">課題の構造</h5>
+                                    <ul class="text-sm text-slate-300 space-y-1">
+                                        <li>• 既存信念を裏付ける情報のみ探索</li>
+                                        <li>• 反証データの意図的無視・軽視</li>
+                                        <li>• 「ひまわり経営」による異論封殺</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="text-green-300 font-medium mb-2">
+                                        ESI解決メカニズム
+                                    </h5>
+                                    <ul class="text-sm text-green-200 space-y-1">
+                                        <li>• 悪魔の代弁者（Devil's Advocate）制度化</li>
+                                        <li>• レッドチーム/ブルーチーム対立議論</li>
+                                        <li>• 多様な視点の構造的導入</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- アンカリングバイアス -->
+                        <div class="bg-slate-800 p-6 rounded-lg">
+                            <h4 class="text-purple-300 font-bold text-lg mb-3">
+                                ⚓ アンカリングバイアス（Anchoring Bias）
+                            </h4>
+                            <div class="grid lg:grid-cols-2 gap-4">
+                                <div>
+                                    <h5 class="text-white font-medium mb-2">課題の構造</h5>
+                                    <ul class="text-sm text-slate-300 space-y-1">
+                                        <li>• 最初の情報への過度依存</li>
+                                        <li>• 市場変化への調整不足</li>
+                                        <li>• 過去成功パターンへの固執</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="text-green-300 font-medium mb-2">
+                                        ESI解決メカニズム
+                                    </h5>
+                                    <ul class="text-sm text-green-200 space-y-1">
+                                        <li>• 複数基準点による価値評価</li>
+                                        <li>• フレーミング・リフレーミング手法</li>
+                                        <li>• 動的データ更新による継続調整</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI時代特有の認知的脅威 -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-6">
+                        2025年AI時代の認知的脅威構造
+                    </h3>
+
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <div class="bg-red-900 bg-opacity-20 p-6 rounded-lg">
+                            <h4 class="text-red-300 font-semibold mb-3">
+                                🧠 生理学的限界の加速
+                            </h4>
+                            <ul class="text-sm text-slate-300 space-y-1">
+                                <li>
+                                    • <strong>マルチタスク常態化</strong>による実行制御破綻
+                                </li>
+                                <li>• <strong>ワーキングメモリ</strong>慢性的過負荷</li>
+                                <li>• <strong>セルフコントロール資源</strong>の段階的枯渇</li>
+                                <li>• 多人種交渉による<strong>認知疲労蓄積</strong></li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-orange-900 bg-opacity-20 p-6 rounded-lg">
+                            <h4 class="text-orange-300 font-semibold mb-3">
+                                🤖 AI依存による思考劣化
+                            </h4>
+                            <ul class="text-sm text-slate-300 space-y-1">
+                                <li>• <strong>System 1思考（直感）依存</strong>増加</li>
+                                <li>• <strong>System 2思考（論理分析）回避</strong></li>
+                                <li>• AI答えへの<strong>批判的検証能力</strong>低下</li>
+                                <li>• <strong>深い思考プロセス</strong>の構造的放棄</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-purple-900 bg-opacity-20 p-6 rounded-lg">
+                            <h4 class="text-purple-300 font-semibold mb-3">
+                                🌐 組織バイアスの指数増幅
+                            </h4>
+                            <ul class="text-sm text-slate-300 space-y-1">
+                                <li>• <strong>権威バイアス</strong>のデジタル増幅</li>
+                                <li>• <strong>エコーチェンバー効果</strong>の構造化</li>
+                                <li>• グローバル意思決定の<strong>文化的盲点</strong></li>
+                                <li>• リアルタイム判断要求による<strong>熟慮回避</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CFO/CIO特化の戦略的合理性 -->
+                <div
+                    class="bg-gradient-to-r from-cyan-900 to-blue-900 bg-opacity-30 p-6 rounded-xl border border-cyan-400">
+                    <h3 class="text-cyan-300 font-bold text-xl mb-4">
+                        🎯 なぜCFO/CIOがESI導入に最適なのか
+                    </h3>
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-cyan-200 font-bold mb-3">
+                                CFO：「最高現実責任者」としての構造的優位性
+                            </h4>
+                            <ul class="text-sm text-cyan-100 space-y-2">
+                                <li>
+                                    •
+                                    <strong>利害関係の希薄性</strong>：戦略議論で最も中立的立場
+                                </li>
+                                <li>
+                                    •
+                                    <strong>プロセス所有権</strong>：意思決定品質の自然な管轄者
+                                </li>
+                                <li>
+                                    •
+                                    <strong>数字の背後の思考</strong>に挑戦できる唯一のポジション
+                                </li>
+                                <li>
+                                    • <strong>反対論理の構築</strong>を要求できる権限と責務
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-blue-200 font-bold mb-3">
+                                CIO：「継続的未来予測」のリーダー
+                            </h4>
+                            <ul class="text-sm text-blue-100 space-y-2">
+                                <li>• <strong>技術的思い込み</strong>への挑戦が可能な立場</li>
+                                <li>• <strong>アドホック死角</strong>軽減の意図的活動推進</li>
+                                <li>• <strong>戦略的パートナー</strong>への進化機会</li>
+                                <li>• <strong>プロセス専門性</strong>への価値転換</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- スタノヴィッチ知能分離理論 -->
+                <div class="mt-8 bg-slate-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-4">
+                        スタノヴィッチ知能分離理論：ESI必要性の理論的根拠
+                    </h3>
+                    <p class="text-slate-200 mb-4">
+                        キース・スタノヴィッチの研究により、現代エグゼクティブの致命的盲点が明確化されました。<strong
+                            class="text-red-300">論理的思考力（アルゴリズム的知性）≠現実適応判断（合理的知性）</strong>という知能分離により、高学歴・高知能な経営層ほど実際のビジネス環境での最適判断に失敗する構造的問題が発生しています。
+                    </p>
+                    <div class="bg-cyan-900 bg-opacity-30 p-4 rounded-lg border border-cyan-400">
+                        <strong class="text-cyan-200">ESIの革命的価値：</strong>
+                        <span class="text-slate-300">
+                            このアルゴリズム的知性と合理的知性の<strong>構造的断絶</strong>を橋渡しし、CFO/CIOが<strong>「いつ、どの問題に、どの思考モードを使うべきか」</strong>を科学的に判断できる認知アーキテクチャを提供します。
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESI認知アーキテクチャ -->
+        <section id="esi-architecture" class="mb-16 section-transition">
+            <div class="glass-effect rounded-2xl p-8">
+                <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
+                    ESI認知アーキテクチャ：責務分離4層モデル
+                </h2>
+
+                <!-- 拡張認知システム -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-6">
+                        拡張認知システム（System 3到達モデル）
+                    </h3>
+                    <div class="grid lg:grid-cols-5 gap-4">
+                        <div class="bg-green-900 bg-opacity-30 p-4 rounded-lg border border-green-400 text-center">
+                            <h4 class="font-bold text-green-300 mb-2">System 3</h4>
+                            <p class="text-xs text-green-200">統合的構造意思決定</p>
+                            <p class="text-xs text-slate-400 mt-1">（ESI到達点）</p>
+                        </div>
+                        <div class="bg-blue-900 bg-opacity-30 p-4 rounded-lg border border-blue-400 text-center">
+                            <h4 class="font-bold text-blue-300 mb-2">System 2</h4>
+                            <p class="text-xs text-blue-200">人間論理分析</p>
+                        </div>
+                        <div class="bg-purple-900 bg-opacity-30 p-4 rounded-lg border border-purple-400 text-center">
+                            <h4 class="font-bold text-purple-300 mb-2">System 1.5</h4>
+                            <p class="text-xs text-purple-200">AI拡張・検証された直感</p>
+                        </div>
+                        <div class="bg-yellow-900 bg-opacity-30 p-4 rounded-lg border border-yellow-400 text-center">
+                            <h4 class="font-bold text-yellow-300 mb-2">System 1</h4>
+                            <p class="text-xs text-yellow-200">人間直感</p>
+                        </div>
+                        <div class="bg-red-900 bg-opacity-30 p-4 rounded-lg border border-red-400 text-center">
+                            <h4 class="font-bold text-red-300 mb-2">System 0</h4>
+                            <p class="text-xs text-red-200">生の情報基盤</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 責務分離4層アーキテクチャ -->
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-cyan-400">
+                        責務分離4層アーキテクチャ
+                    </h3>
+
+                    <div class="space-y-6">
+                        <!-- Layer 4 -->
+                        <div
+                            class="bg-gradient-to-r from-green-900 to-emerald-900 bg-opacity-30 p-6 rounded-lg border border-green-400">
+                            <h4 class="text-green-300 font-bold text-lg mb-2">
+                                Layer 4: Executive Control（統制責務）
+                            </h4>
+                            <p class="text-green-200 mb-3">
+                                組織全体の「合理的知性」を担う実践機関
+                            </p>
+                            <ul class="text-sm text-green-100 space-y-1">
+                                <li>• メタ認知ガバナンス：認知モードの動的制御</li>
+                                <li>• 「思考の不選択（Type B）」の統治</li>
+                                <li>• 跨部門的意思決定の統合調整</li>
+                            </ul>
+                        </div>
+
+                        <!-- Layer 3 -->
+                        <div
+                            class="bg-gradient-to-r from-blue-900 to-cyan-900 bg-opacity-30 p-6 rounded-lg border border-blue-400">
+                            <h4 class="text-blue-300 font-bold text-lg mb-2">
+                                Layer 3: Strategic Architecture（設計責務）
+                            </h4>
+                            <p class="text-blue-200 mb-3">戦略的制約の設計機関</p>
+                            <ul class="text-sm text-blue-100 space-y-1">
+                                <li>• 「選ばないこと（Type A）」のアーキテクチャ設計</li>
+                                <li>• 未来選択権空間の構造設計</li>
+                                <li>• 価値創造の制約条件定義</li>
+                            </ul>
+                        </div>
+
+                        <!-- Layer 2 -->
+                        <div
+                            class="bg-gradient-to-r from-orange-900 to-red-900 bg-opacity-30 p-6 rounded-lg border border-orange-400">
+                            <h4 class="text-orange-300 font-bold text-lg mb-2">
+                                Layer 2: Cognitive Processing（処理責務）
+                            </h4>
+                            <p class="text-orange-200 mb-3">動的介入・対話層</p>
+                            <ul class="text-sm text-orange-100 space-y-1">
+                                <li>• ソクラテス問答エンジンによる思考深化</li>
+                                <li>• バイアス検出・軽減メカニズム</li>
+                                <li>• AI-人間協調処理の最適化</li>
+                            </ul>
+                        </div>
+
+                        <!-- Layer 1 -->
+                        <div
+                            class="bg-gradient-to-r from-purple-900 to-indigo-900 bg-opacity-30 p-6 rounded-lg border border-purple-400">
+                            <h4 class="text-purple-300 font-bold text-lg mb-2">
+                                Layer 1: Operational Execution（実行責務）
+                            </h4>
+                            <p class="text-purple-200 mb-3">戦術実装・フィードバック</p>
+                            <ul class="text-sm text-purple-100 space-y-1">
+                                <li>• パフォーマンス監視とフィードバックループ</li>
+                                <li>• 実装結果の構造的分析</li>
+                                <li>• 継続的改善サイクルの運営</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 「選ばないこと」の戦略的制約設計 -->
+        <section id="not-choosing" class="mb-16 section-transition">
+            <div class="glass-effect rounded-2xl p-8">
+                <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
+                    「選ばないこと」の二重構造：ESI独自の制約設計思想
+                </h2>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="bg-red-900 bg-opacity-30 p-6 rounded-lg border border-red-400">
+                        <h3 class="text-red-300 font-bold text-xl mb-4">
+                            Type A：行為の不選択
+                        </h3>
+                        <p class="text-red-200 mb-4">選択肢の構造的制限</p>
+                        <ul class="text-sm text-red-100 space-y-2">
+                            <li>• 戦略目標に基づく実行タスクの構造的制限</li>
+                            <li>• プロジェクト・投資の選択肢削減</li>
+                            <li>• 組織リソースの戦略的集中</li>
+                            <li>• 機会損失への恐れの克服</li>
+                        </ul>
+                        <div class="mt-4 p-3 bg-red-800 bg-opacity-50 rounded border border-red-300">
+                            <strong class="text-red-200">効果：</strong>
+                            <span class="text-red-100 text-sm">認知負荷40%軽減、意思決定品質30%向上</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-900 bg-opacity-30 p-6 rounded-lg border border-blue-400">
+                        <h3 class="text-blue-300 font-bold text-xl mb-4">
+                            Type B：思考の不選択
+                        </h3>
+                        <p class="text-blue-200 mb-4">認知モードの戦略的選択</p>
+                        <ul class="text-sm text-blue-100 space-y-2">
+                            <li>• タスク性質に基づく適切な思考モード選択</li>
+                            <li>• System 1 vs System 2の合理的判断</li>
+                            <li>• 不適切な認知モードの意図的回避</li>
+                            <li>• 認知トリアージシステムによる自動化</li>
+                        </ul>
+                        <div class="mt-4 p-3 bg-blue-800 bg-opacity-50 rounded border border-blue-300">
+                            <strong class="text-blue-200">効果：</strong>
+                            <span class="text-blue-100 text-sm">思考精度50%向上、エラー率60%削減</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-slate-800 p-6 rounded-xl">
+                    <h3 class="text-cyan-400 font-bold text-lg mb-3">
+                        認知トリアージ・システムの4軸評価
+                    </h3>
+                    <div class="grid lg:grid-cols-4 gap-4">
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <span class="text-white font-bold">重要性</span>
+                            </div>
+                            <p class="text-xs text-slate-300">Strategic Importance</p>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <span class="text-white font-bold">不可逆性</span>
+                            </div>
+                            <p class="text-xs text-slate-300">Irreversibility</p>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <span class="text-white font-bold">複雑性</span>
+                            </div>
+                            <p class="text-xs text-slate-300">Complexity</p>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <span class="text-white font-bold">不確実性</span>
+                            </div>
+                            <p class="text-xs text-slate-300">Uncertainty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 実装方法論 -->
+        <section id="implementation" class="mb-16 section-transition">
+            <div class="glass-effect rounded-2xl p-8">
+                <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
+                    ESI実装方法論：段階的認知変革プロセス
+                </h2>
+
+                <div class="space-y-8">
+                    <!-- Phase 1 -->
+                    <div class="relative flex items-center">
+                        <div
+                            class="bg-red-600 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white z-10">
+                            1
+                        </div>
+                        <div class="ml-6 flex-grow">
+                            <h3 class="text-2xl font-semibold text-white">
+                                Phase 1: 認知構造診断（1-2ヶ月）
+                            </h3>
+                            <div class="mt-2 bg-slate-800 p-6 rounded-lg">
+                                <h4 class="text-red-300 font-medium mb-3">実施内容</h4>
+                                <ul class="text-sm text-slate-300 space-y-1">
+                                    <li>• CFO・CIO個別の認知バイアス診断</li>
+                                    <li>• 組織の意思決定プロセス構造分析</li>
+                                    <li>• 稟議制度・根回し文化の認知負荷測定</li>
+                                    <li>• 既存システムとの統合可能性評価</li>
+                                </ul>
+                                <div class="mt-3 p-3 bg-red-900 bg-opacity-30 rounded border border-red-400">
+                                    <strong class="text-red-200">成果物：</strong>
+                                    <span class="text-slate-300">認知構造診断レポート + 個別化ESI設計書</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phase 2 -->
+                    <div class="relative flex items-center">
+                        <div
+                            class="bg-orange-600 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white z-10">
+                            2
+                        </div>
+                        <div class="ml-6 flex-grow">
+                            <h3 class="text-2xl font-semibold text-white">
+                                Phase 2: ESIコア機能実装（3-6ヶ月）
+                            </h3>
+                            <div class="mt-2 bg-slate-800 p-6 rounded-lg">
+                                <h4 class="text-orange-300 font-medium mb-3">段階的導入</h4>
+                                <div class="grid lg:grid-cols-2 gap-4">
+                                    <div>
+                                        <h5 class="text-white text-sm font-medium">認知機能</h5>
+                                        <ul class="text-xs text-slate-300 space-y-1 mt-1">
+                                            <li>• 認知トリアージシステム</li>
+                                            <li>• ソクラテス問答エンジン</li>
+                                            <li>• バイアス検出・軽減</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white text-sm font-medium">構造機能</h5>
+                                        <ul class="text-xs text-slate-300 space-y-1 mt-1">
+                                            <li>• 記憶外部化システム</li>
+                                            <li>• AI共創プラットフォーム</li>
+                                            <li>• 判断構造マップ</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-3 p-3 bg-orange-900 bg-opacity-30 rounded border border-orange-400">
+                                    <strong class="text-orange-200">KPI目標：</strong>
+                                    <span class="text-slate-300">意思決定精度30%向上 + 認知疲労40%軽減</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phase 3 -->
+                    <div class="relative flex items-center">
+                        <div
+                            class="bg-green-600 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white z-10">
+                            3
+                        </div>
+                        <div class="ml-6 flex-grow">
+                            <h3 class="text-2xl font-semibold text-white">
+                                Phase 3: 自律運用・拡張（6ヶ月〜）
+                            </h3>
+                            <div class="mt-2 bg-slate-800 p-6 rounded-lg">
+                                <h4 class="text-green-300 font-medium mb-2">
+                                    持続的価値創出
+                                </h4>
+                                <ul class="text-sm text-slate-300 space-y-1">
+                                    <li>• 組織全体への横展開</li>
+                                    <li>• ESI運用の完全内製化</li>
+                                    <li>• 継続的改善サイクルの確立</li>
+                                    <li>• 新たな競争優位の発見・実装</li>
+                                </ul>
+                                <div class="mt-3 p-3 bg-green-900 bg-opacity-30 rounded border border-green-400">
+                                    <strong class="text-green-200">目標達成：</strong>
+                                    <span class="text-slate-300">自律的認知進化能力の獲得</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 日本企業特有課題への対応 -->
+        <section id="japan-specific" class="mb-16 section-transition">
+            <div class="glass-effect rounded-2xl p-8">
+                <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
+                    日本企業特有の「認知OS」課題への構造的解決
+                </h2>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-cyan-400 font-semibold mb-4">
+                            🏢 稟議制度のOS層改革
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="bg-slate-800 p-4 rounded-lg">
+                                <h5 class="text-white font-medium mb-2">現状の構造的問題</h5>
+                                <ul class="text-sm text-slate-300 space-y-1">
+                                    <li>• 「分散処理・責任回避アーキテクチャ」</li>
+                                    <li>• 情報非対称性による合意形成OS</li>
+                                    <li>• 平均承認期間：2-6ヶ月</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-900 bg-opacity-30 p-4 rounded-lg border border-green-500">
+                                <h5 class="text-green-300 font-medium mb-2">ESI構造的解決</h5>
+                                <ul class="text-sm text-green-100 space-y-1">
+                                    <li>• 判断構造マップによる透明化</li>
+                                    <li>• AI支援による論点構造化</li>
+                                    <li>• 承認期間：平均2週間に短縮</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-cyan-400 font-semibold mb-4">
+                            🤝 暗黙知の構造化
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="bg-slate-800 p-4 rounded-lg">
+                                <h5 class="text-white font-medium mb-2">
+                                    属人化された知識資産
+                                </h5>
+                                <ul class="text-sm text-slate-300 space-y-1">
+                                    <li>• 根回しの人間関係ネットワーク</li>
+                                    <li>• 業界特有の商慣習・タブー</li>
+                                    <li>• 退職時の知識消失リスク</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-900 bg-opacity-30 p-4 rounded-lg border border-blue-500">
+                                <h5 class="text-blue-300 font-medium mb-2">
+                                    知識構造の可視化
+                                </h5>
+                                <ul class="text-sm text-blue-100 space-y-1">
+                                    <li>• 暗黙知の形式知化プロセス</li>
+                                    <li>• 文化的制約の構造的マッピング</li>
+                                    <li>• 継承可能な知識アーキテクチャ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-slate-800 p-6 rounded-xl">
+                    <h3 class="text-cyan-400 font-bold text-lg mb-4">
+                        高文脈コミュニケーションの構造的対応
+                    </h3>
+                    <div class="grid lg:grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <h4 class="text-yellow-300 font-medium mb-2">察知システム</h4>
+                            <p class="text-sm text-slate-300">
+                                非言語的情報の構造化と意思決定への統合
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <h4 class="text-green-300 font-medium mb-2">合意形成OS</h4>
+                            <p class="text-sm text-slate-300">
+                                根回し文化を活かした効率的意思決定プロセス
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <h4 class="text-blue-300 font-medium mb-2">
+                                信頼アーキテクチャ
+                            </h4>
+                            <p class="text-sm text-slate-300">
+                                長期関係を基盤とした価値創出メカニズム
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 競合差別化 -->
+        <section id="competitive-advantage" class="mb-16 section-transition">
+            <div class="glass-effect rounded-2xl p-8">
+                <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
+                    なぜ従来コンサルティングでは限界があるのか？
+                </h2>
+
+                <!-- 根本的問題の可視化 -->
+                <div class="mb-8 bg-red-900 bg-opacity-30 p-6 rounded-xl border-2 border-red-400">
+                    <h3 class="text-2xl font-bold text-red-300 mb-4">
+                        🚨 従来コンサルティングの構造的限界
+                    </h3>
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <div class="bg-red-800 bg-opacity-50 p-4 rounded-lg">
+                            <h4 class="text-red-200 font-bold mb-3">
+                                「症状治療」による表面的改善
+                            </h4>
+                            <ul class="text-sm text-red-100 space-y-1">
+                                <li>• プロセス効率化：10-30%向上に留まる</li>
+                                <li>• 既存システム内での最適化のみ</li>
+                                <li>• 根本原因（組織DNA）は未着手</li>
+                                <li>• 改善は見られるが「変革」は実現しない</li>
+                            </ul>
+                        </div>
+                        <div class="bg-orange-800 bg-opacity-50 p-4 rounded-lg">
+                            <h4 class="text-orange-200 font-bold mb-3">
+                                依存創出型ビジネスモデル
+                            </h4>
+                            <ul class="text-sm text-orange-100 space-y-1">
+                                <li>• クライアントの自律性を阻害</li>
+                                <li>• 継続的コンサル依存の構造</li>
+                                <li>• 問題解決後の再発リスク</li>
+                                <li>• 「時間売り」による価値創出限界</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アーキテクチャ層の差異 -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-6">
+                        OS層 vs アプリケーション層：決定的差異の可視化
+                    </h3>
+
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <!-- 従来コンサルのモノリシック構造 -->
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-600">
+                            <h4 class="text-gray-300 font-bold text-lg mb-4 text-center">
+                                従来コンサル：モノリシック思考
+                            </h4>
+                            <div class="bg-gray-700 p-4 rounded border-2 border-dashed border-gray-500">
+                                <div class="text-center text-gray-300 py-8">
+                                    <div class="text-lg font-bold mb-2">
+                                        Application Layer Only
+                                    </div>
+                                    <div class="text-sm mb-4">（アプリケーション層のみ）</div>
+                                    <div class="space-y-2 text-xs text-left">
+                                        <div>• 戦略策定・実行・評価・改善が混在</div>
+                                        <div>• 責務境界の曖昧性</div>
+                                        <div>• 依存関係の複雑化</div>
+                                        <div>• デバッグ困難性</div>
+                                        <div>• スケーラビリティ制約</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <span class="text-red-300 font-bold">結果：</span>
+                                <span class="text-gray-300 text-sm">表面的改善のみ、根本変革は不可能</span>
+                            </div>
+                        </div>
+
+                        <!-- ESI責務分離アーキテクチャ -->
+                        <div class="bg-slate-800 p-6 rounded-lg border border-cyan-400">
+                            <h4 class="text-cyan-300 font-bold text-lg mb-4 text-center">
+                                ESI：責務分離アーキテクチャ
+                            </h4>
+                            <div class="space-y-2">
+                                <div class="bg-green-700 p-3 rounded text-center">
+                                    <div class="text-green-100 font-bold">
+                                        Executive Control Layer
+                                    </div>
+                                    <div class="text-xs text-green-200">
+                                        統制責務（メタ認知ガバナンス）
+                                    </div>
+                                </div>
+                                <div class="bg-blue-700 p-3 rounded text-center">
+                                    <div class="text-blue-100 font-bold">
+                                        Strategic Architecture Layer
+                                    </div>
+                                    <div class="text-xs text-blue-200">
+                                        設計責務（制約アーキテクチャ）
+                                    </div>
+                                </div>
+                                <div class="bg-orange-700 p-3 rounded text-center">
+                                    <div class="text-orange-100 font-bold">
+                                        Cognitive Processing Layer
+                                    </div>
+                                    <div class="text-xs text-orange-200">
+                                        処理責務（バイアス軽減）
+                                    </div>
+                                </div>
+                                <div class="bg-purple-700 p-3 rounded text-center">
+                                    <div class="text-purple-100 font-bold">
+                                        Operational Execution Layer
+                                    </div>
+                                    <div class="text-xs text-purple-200">
+                                        実行責務（戦術実装）
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <span class="text-green-300 font-bold">結果：</span>
+                                <span class="text-cyan-200 text-sm">構造的変革、70%+ROI実現</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 具体的失敗事例による従来手法の限界証明 -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-6">
+                        従来コンサル手法では解決不可能な構造的課題
+                    </h3>
+
+                    <div class="space-y-6">
+                        <!-- BCG DRIフレームワークの限界 -->
+                        <div class="bg-slate-800 p-6 rounded-lg">
+                            <h4 class="text-yellow-300 font-bold text-lg mb-3">
+                                📊 BCG DRIフレームワークの構造的問題
+                            </h4>
+                            <div class="grid lg:grid-cols-2 gap-4">
+                                <div>
+                                    <h5 class="text-white font-medium mb-2">アプローチ限界</h5>
+                                    <ul class="text-sm text-slate-300 space-y-1">
+                                        <li>
+                                            • <strong>Deploy</strong> → 既存システム上での最適化
+                                        </li>
+                                        <li>
+                                            • <strong>Reshape</strong> → アプリケーション層の再構成
+                                        </li>
+                                        <li>
+                                            • <strong>Invent</strong> → OSレベル制約内での創造
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="text-green-300 font-medium mb-2">根本的課題</h5>
+                                    <ul class="text-sm text-green-200 space-y-1">
+                                        <li>• 組織DNA・意思決定アーキテクチャ未着手</li>
+                                        <li>• エグゼクティブレベル認知統制が機能不全継続</li>
+                                        <li>• バイアス構造への無対応</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MECE思考の認知科学的限界 -->
+                        <div class="bg-slate-800 p-6 rounded-lg">
+                            <h4 class="text-purple-300 font-bold text-lg mb-3">
+                                🧩 MECE思考の認知科学的限界
+                            </h4>
+                            <div class="grid lg:grid-cols-2 gap-4">
+                                <div>
+                                    <h5 class="text-white font-medium mb-2">構造的欠陥</h5>
+                                    <ul class="text-sm text-slate-300 space-y-1">
+                                        <li>• 既存パラダイム内での問題分解（類推思考）</li>
+                                        <li>• 第一原理からの根本的問題再定義不可</li>
+                                        <li>• 確証バイアスの構造的増幅</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="text-green-300 font-medium mb-2">
+                                        ESI構造知性対比
+                                    </h5>
+                                    <ul class="text-sm text-green-200 space-y-1">
+                                        <li>• 因果構造の根本設計</li>
+                                        <li>• 「なぜそうなる構造なのか」の解明</li>
+                                        <li>• メタレベルでの問題空間再定義</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- アジャイル思考の日本企業不適合 -->
+                        <div class="bg-slate-800 p-6 rounded-lg">
+                            <h4 class="text-red-300 font-bold text-lg mb-3">
+                                ⚡ アジャイル思考の日本企業構造的不適合
+                            </h4>
+                            <div class="grid lg:grid-cols-2 gap-4">
+                                <div>
+                                    <h5 class="text-white font-medium mb-2">不適合理由</h5>
+                                    <ul class="text-sm text-slate-300 space-y-1">
+                                        <li>• 日本企業のリスク回避思考と根本的矛盾</li>
+                                        <li>• 「要件定義の反復」が構想乖離を生む</li>
+                                        <li>• 稟議制度・根回し文化との衝突</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="text-green-300 font-medium mb-2">
+                                        ESI「テストファースト」対応
+                                    </h5>
+                                    <ul class="text-sm text-green-200 space-y-1">
+                                        <li>• リスク構造の事前設計による安全性</li>
+                                        <li>• 「失敗の構造化」による戦略的制約</li>
+                                        <li>• 構想-実装間の構造的整合性確保</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- レイヤー別競合分析表 -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-6">
+                        レイヤー別競合能力分析：ESIの圧倒的優位性
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full bg-slate-800 rounded-lg overflow-hidden">
+                            <thead class="bg-slate-700">
+                                <tr>
+                                    <th class="text-left py-3 px-4 text-cyan-400">認知層</th>
+                                    <th class="text-left py-3 px-4 text-red-400">MBB/Big4</th>
+                                    <th class="text-left py-3 px-4 text-yellow-400">AI/SaaS</th>
+                                    <th class="text-left py-3 px-4 text-green-400">ESI</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-slate-300">
+                                <tr class="border-b border-slate-700">
+                                    <td class="py-3 px-4 font-medium">
+                                        Executive Control<br /><span class="text-xs text-slate-400">(メタ認知統制)</span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="text-red-300 font-bold">✗</span> 未対応
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="text-red-300 font-bold">✗</span> 対象外
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="text-green-300 font-bold">✓</span>
+                                        メタ認知ガバナンス設計
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-slate-700">
+                                    <td class="py-3 px-4 font-medium">
+                                        Strategic OS<br /><span class="text-xs text-slate-400">(構造制約設計)</span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="text-yellow-300 font-bold">△</span> 部分対応
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="text-red-300 font-bold">✗</span> 未対応
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="text-green-300 font-bold">✓</span>
+                                        「選ばないこと」設計
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-slate-700">
+                                    <td class="py-3 px-4 font-medium">
+                                        Cognitive Kernel<br /><span class="text-xs text-slate-400">(バイアス軽減)</span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="text-yellow-300 font-bold">△</span> 限定対応
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="text-yellow-300 font-bold">△</span> 部分的
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="text-green-300 font-bold">✓</span>
+                                        体系的検出・軽減
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-medium">
+                                        Application Layer<br /><span class="text-xs text-slate-400">(戦術実行)</span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="text-green-300 font-bold">✓</span> 主要対象
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="text-green-300 font-bold">✓</span> 効率化特化
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="text-green-300 font-bold">✓</span> 統合実装
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ESI独自価値提案の明確化 -->
+                <div
+                    class="bg-gradient-to-r from-cyan-900 to-blue-900 bg-opacity-50 p-8 rounded-xl border border-cyan-400">
+                    <h3 class="text-3xl font-bold text-cyan-300 mb-6 text-center">
+                        構造的思考変革にはESIしかない理由
+                    </h3>
+
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-cyan-200 font-bold text-xl mb-4">
+                                🎯 唯一無二の統合領域
+                            </h4>
+                            <div class="bg-cyan-900 bg-opacity-30 p-4 rounded-lg mb-4">
+                                <p class="text-cyan-100 font-semibold mb-2">
+                                    「認知科学 × AI共創 × 構造設計」
+                                </p>
+                                <p class="text-cyan-200 text-sm">
+                                    25年の実績による模倣困難性と多分野統合による参入障壁により、
+                                    明確なブルーオーシャンを形成
+                                </p>
+                            </div>
+
+                            <h4 class="text-blue-200 font-bold text-lg mb-3">
+                                構造的差別化要因
+                            </h4>
+                            <ul class="text-sm text-blue-100 space-y-1">
+                                <li>
+                                    •
+                                    <strong>アーキテクチャ規範</strong>：単なる方法論を超えた設計規範
+                                </li>
+                                <li>
+                                    • <strong>責務分離原則</strong>：ソフトウェア工学の組織適用
+                                </li>
+                                <li>
+                                    • <strong>認知OS再設計</strong>：思考プロセスの根本変革
+                                </li>
+                                <li>• <strong>自律性志向</strong>：依存からの脱却を最優先</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-green-200 font-bold text-xl mb-4">
+                                💎 「Cognitive Architecture as a Service」
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-green-900 bg-opacity-30 p-4 rounded-lg">
+                                    <h5 class="text-green-200 font-bold mb-2">
+                                        従来との根本的違い
+                                    </h5>
+                                    <div class="text-sm space-y-1">
+                                        <div>
+                                            <span class="text-red-300">従来：</span><span
+                                                class="text-slate-300">ソフトウェア最適化</span>
+                                        </div>
+                                        <div>
+                                            <span class="text-green-300">ESI：</span><span
+                                                class="text-slate-300">システムアーキテクチャ設計</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-blue-900 bg-opacity-30 p-4 rounded-lg">
+                                    <h5 class="text-blue-200 font-bold mb-2">
+                                        価値創出メカニズム
+                                    </h5>
+                                    <div class="text-sm space-y-1">
+                                        <div>
+                                            <span class="text-red-300">従来：</span><span
+                                                class="text-slate-300">改善提案・ベストプラクティス</span>
+                                        </div>
+                                        <div>
+                                            <span class="text-green-300">ESI：</span><span
+                                                class="text-slate-300">アーキテクチャ仕様書・責務分離実装</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-purple-900 bg-opacity-30 p-4 rounded-lg">
+                                    <h5 class="text-purple-200 font-bold mb-2">成果の持続性</h5>
+                                    <div class="text-sm space-y-1">
+                                        <div>
+                                            <span class="text-red-300">従来：</span><span
+                                                class="text-slate-300">依存創出型・一時的改善</span>
+                                        </div>
+                                        <div>
+                                            <span class="text-green-300">ESI：</span><span
+                                                class="text-slate-300">自律的進化能力・構造的優位</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 text-center">
+                        <div class="text-2xl font-bold text-white mb-2">結論</div>
+                        <div class="text-lg text-cyan-200">
+                            <strong>ESIは従来コンサルティング業界のパラダイムシフトを主導し、</strong><br />
+                            <strong class="text-green-300">「思考進化のカタリスト」</strong>として組織認知OSレベルでの根本変革を実現する<br />
+                            <strong class="text-cyan-300">世界唯一の認知アーキテクチャ規範</strong>である
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ソクラテス問答エンジン -->
+        <section id="socratic-engine" class="mb-16 section-transition">
+            <div class="glass-effect rounded-2xl p-8">
+                <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
+                    ソクラテス問答エンジン：思考深化の自動化
+                </h2>
+
+                <div class="bg-slate-800 p-6 rounded-xl mb-8">
+                    <h3 class="text-cyan-400 font-bold text-lg mb-4">
+                        基本原理：答えではなく「問い」による思考進化
+                    </h3>
+                    <p class="text-slate-200 leading-relaxed">
+                        ESIのAIは答えを与えるのではなく、思考を深めるための<strong
+                            class="text-cyan-300">「問い」</strong>を投げかけます。これにより、ユーザー自身のメタ認知能力が向上し、持続的な認知成長が実現されます。
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-6">
+                    <div class="bg-blue-900 bg-opacity-30 p-6 rounded-lg border border-blue-400">
+                        <h4 class="text-blue-300 font-bold text-lg mb-3">
+                            Level 1: 構造化
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-blue-800 bg-opacity-50 p-3 rounded">
+                                <p class="text-blue-200 text-sm font-medium">質問例</p>
+                                <p class="text-blue-100 text-xs mt-1">
+                                    「この問題の真の目的は何ですか？」
+                                </p>
+                            </div>
+                            <div class="bg-blue-800 bg-opacity-50 p-3 rounded">
+                                <p class="text-blue-200 text-sm font-medium">質問例</p>
+                                <p class="text-blue-100 text-xs mt-1">
+                                    「判断の制約条件を明確化できますか？」
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-blue-200 mt-3">→ 問題の本質的理解の促進</p>
+                    </div>
+
+                    <div class="bg-yellow-900 bg-opacity-30 p-6 rounded-lg border border-yellow-400">
+                        <h4 class="text-yellow-300 font-bold text-lg mb-3">
+                            Level 2: 反証
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-yellow-800 bg-opacity-50 p-3 rounded">
+                                <p class="text-yellow-200 text-sm font-medium">質問例</p>
+                                <p class="text-yellow-100 text-xs mt-1">
+                                    「その前提が偽である可能性は？」
+                                </p>
+                            </div>
+                            <div class="bg-yellow-800 bg-opacity-50 p-3 rounded">
+                                <p class="text-yellow-200 text-sm font-medium">質問例</p>
+                                <p class="text-yellow-100 text-xs mt-1">
+                                    「逆の結論を支持するデータは？」
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-yellow-200 mt-3">
+                            → 確証バイアスの構造的克服
+                        </p>
+                    </div>
+
+                    <div class="bg-purple-900 bg-opacity-30 p-6 rounded-lg border border-purple-400">
+                        <h4 class="text-purple-300 font-bold text-lg mb-3">
+                            Level 3: メタ認知
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-purple-800 bg-opacity-50 p-3 rounded">
+                                <p class="text-purple-200 text-sm font-medium">質問例</p>
+                                <p class="text-purple-100 text-xs mt-1">
+                                    「なぜ今、そのように感じたのか？」
+                                </p>
+                            </div>
+                            <div class="bg-purple-800 bg-opacity-50 p-3 rounded">
+                                <p class="text-purple-200 text-sm font-medium">質問例</p>
+                                <p class="text-purple-100 text-xs mt-1">
+                                    「その思考パターンは過去の成功体験に影響されているか？」
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-purple-200 mt-3">
+                            → 思考プロセス自体への気づき
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-green-900 bg-opacity-30 p-6 rounded-xl border border-green-400">
+                    <h3 class="text-green-300 font-bold text-lg mb-3">
+                        実装効果の定量化
+                    </h3>
+                    <div class="grid lg:grid-cols-3 gap-4 text-center">
+                        <div>
+                            <div class="text-2xl font-bold text-green-300 mb-1">85%</div>
+                            <p class="text-sm text-green-200">バイアス検出精度向上</p>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-cyan-300 mb-1">60%</div>
+                            <p class="text-sm text-cyan-200">思考深度の増加</p>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-yellow-300 mb-1">45%</div>
+                            <p class="text-sm text-yellow-200">判断精度の改善</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESI Strategic Oracle -->
+        <section id="esi-oracle" class="mb-16 section-transition">
+            <div class="glass-effect rounded-2xl p-1 relative overflow-hidden">
+                <!-- Glowing border effect -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 animate-pulse pointer-events-none">
+                </div>
+
+                <div class="relative bg-slate-900/90 rounded-xl p-8 backdrop-blur-xl">
+                    <div class="text-center mb-8">
+                        <div
+                            class="inline-block px-3 py-1 bg-blue-900/30 border border-blue-400/30 rounded-full text-blue-300 text-xs font-bold mb-4">
+                            POWERED BY GEMINI 2.5 FLASH
+                        </div>
+                        <h2
+                            class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-2">
+                            ESI Strategic Oracle
+                        </h2>
+                        <p class="text-slate-400 text-sm">
+                            構造知性による戦略的課題のリアルタイム構造化
+                        </p>
+                    </div>
+
+                    <!-- Settings Controls -->
+                    <div class="absolute top-8 right-8">
+                        <button id="changeKeyBtn"
+                            class="bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white p-2 rounded-full transition-colors hidden"
+                            title="Change API Key">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.532 1.532 0 01-2.287-.947c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- API Key Input (Hidden when set) -->
+                    <div id="apiKeyContainer"
+                        class="max-w-md mx-auto mb-8 p-6 bg-slate-800 rounded-lg border border-slate-700">
+                        <label class="block text-slate-300 text-sm font-bold mb-2" for="apiKey">
+                            Google Gemini API Key
+                        </label>
+                        <div class="flex gap-2">
+                            <input type="password" id="apiKey"
+                                class="flex-1 bg-slate-900 border border-slate-600 rounded px-3 py-2 text-slate-200 focus:outline-none focus:border-blue-500 transition-colors"
+                                placeholder="Enter your API Key">
+                            <button id="saveKeyBtn"
+                                class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded transition-colors">
+                                Activate
+                            </button>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-2">
+                            * Key is stored locally in your browser only.
+                        </p>
+                    </div>
+
+                    <!-- Main Interface (Hidden until key set) -->
+                    <div id="oracleInterface" class="hidden space-y-6">
+                        <!-- Persona Selection -->
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <button
+                                class="persona-btn active group relative p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 transition-all text-left"
+                                data-persona="executive">
+                                <div class="text-blue-400 text-xs font-bold mb-1">MODE: EXECUTIVE</div>
+                                <div class="text-slate-200 text-sm font-semibold">経営執行モード</div>
+                                <div class="text-slate-500 text-xs mt-1 group-hover:text-slate-400">意思決定の構造化とリスク分析</div>
+                            </button>
+                            <button
+                                class="persona-btn group relative p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 transition-all text-left"
+                                data-persona="investor">
+                                <div class="text-green-400 text-xs font-bold mb-1">MODE: INVESTOR</div>
+                                <div class="text-slate-200 text-sm font-semibold">投資評価モード</div>
+                                <div class="text-slate-500 text-xs mt-1 group-hover:text-slate-400">事業モデルの堅牢性と成長性</div>
+                            </button>
+                            <button
+                                class="persona-btn group relative p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 transition-all text-left"
+                                data-persona="startup">
+                                <div class="text-purple-400 text-xs font-bold mb-1">MODE: STARTUP</div>
+                                <div class="text-slate-200 text-sm font-semibold">起業戦略モード</div>
+                                <div class="text-slate-500 text-xs mt-1 group-hover:text-slate-400">PMF探索とピボット構造</div>
+                            </button>
+                        </div>
+
+                        <!-- Terminal Output -->
+                        <div class="terminal-window rounded-lg overflow-hidden h-96 min-h-[350px] flex flex-col resize-y"
+                            style="max-height: 80vh">
+                            <div
+                                class="terminal-header px-4 py-2 flex items-center justify-between border-b border-slate-700 bg-slate-800/80">
+                                <div class="flex items-center space-x-2">
+                                    <div class="terminal-dot bg-red-500"></div>
+                                    <div class="terminal-dot bg-yellow-500"></div>
+                                    <div class="terminal-dot bg-green-500"></div>
+                                    <div class="ml-4 text-xs text-slate-400 font-mono">esi_core_v2.5.exe
+                                        --structural-analysis</div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button id="clearLogBtn"
+                                        class="text-slate-400 hover:text-red-400 transition-colors p-1 rounded hover:bg-slate-700 flex items-center gap-1 group"
+                                        title="Clear Log">
+                                        <span class="text-[10px] hidden group-hover:inline-block">CLEAR</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                            fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <button id="copyLogBtn"
+                                        class="text-slate-400 hover:text-white transition-colors p-1 rounded hover:bg-slate-700 flex items-center gap-1 group"
+                                        title="Copy Full Log">
+                                        <span class="text-[10px] hidden group-hover:inline-block">COPY LOG</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                            fill="currentColor">
+                                            <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                                            <path
+                                                d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="terminalOutput"
+                                class="flex-1 p-4 overflow-y-auto text-sm font-mono text-slate-300 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
+                                <div class="text-blue-400 mb-2">Initialize ESI Structural Analysis Protocol...</div>
+                                <div class="text-slate-400 mb-4">Select a persona and describe your strategic challenge
+                                    to begin structural mapping.</div>
+                            </div>
+                            <div class="p-4 bg-slate-900/50 border-t border-slate-700">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-blue-400 font-bold">></span>
+                                    <input type="text" id="userQuery"
+                                        class="flex-1 bg-transparent border-none focus:ring-0 text-slate-100 font-mono placeholder-slate-600"
+                                        placeholder="Enter your strategic challenge..." autocomplete="off">
+                                    <button id="submitQueryBtn"
+                                        class="text-slate-400 hover:text-white transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                            fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- コンクルージョン -->
+        <section id="conclusion" class="mb-16 section-transition">
+            <div class="executive-card rounded-2xl p-10 text-center">
+                <h2 class="text-5xl font-bold text-transparent bg-clip-text premium-gradient mb-8">
+                    構造知性による認知革命の実現
+                </h2>
+
+                <div class="max-w-5xl mx-auto space-y-8">
+                    <p class="text-2xl text-slate-200 leading-relaxed executive-text">
+                        ESIは単なるコンサルティングサービスではありません。<br />
+                        <strong class="premium-emphasis text-3xl">人類初の「認知アーキテクチャ規範」</strong>として、
+                        組織の思考OSを根本から再設計し、非線形AI時代における持続的競争優位を創出します。
+                    </p>
+
+                    <div class="executive-card p-8 rounded-xl">
+                        <h3 class="premium-emphasis font-bold text-2xl mb-6">
+                            ESIが実現する変革
+                        </h3>
+                        <div class="grid lg:grid-cols-2 gap-8">
+                            <div class="text-left">
+                                <h4 class="text-green-300 font-bold text-xl mb-4">
+                                    個人レベルの進化
+                                </h4>
+                                <div class="space-y-3 executive-text">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-2 h-2 bg-green-400 rounded-full mt-3 flex-shrink-0"></div>
+                                        <p class="text-slate-300">
+                                            System 3思考の実現と認知統制能力の向上
+                                        </p>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-2 h-2 bg-green-400 rounded-full mt-3 flex-shrink-0"></div>
+                                        <p class="text-slate-300">
+                                            バイアス検出・軽減の自動化システム
+                                        </p>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-2 h-2 bg-green-400 rounded-full mt-3 flex-shrink-0"></div>
+                                        <p class="text-slate-300">
+                                            メタ認知能力の構造的強化と持続性
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="text-blue-300 font-bold text-xl mb-4">
+                                    組織レベルの変革
+                                </h4>
+                                <div class="space-y-3 executive-text">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
+                                        <p class="text-slate-300">
+                                            意思決定品質の根本的向上（70%+ ROI）
+                                        </p>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
+                                        <p class="text-slate-300">
+                                            認知負荷の構造的軽減と効率性向上
+                                        </p>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
+                                        <p class="text-slate-300">
+                                            自律的認知進化能力の獲得と継続
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA セクション -->
+                    <div class="executive-card p-8 rounded-xl border-2 border-blue-400/30">
+                        <h3 class="premium-emphasis font-bold text-2xl mb-6">
+                            次のステップ
+                        </h3>
+                        <p class="text-slate-200 mb-8 text-xl executive-text">
+                            あなたの組織の認知構造診断から始めませんか？<br />
+                            ESI導入による具体的変革ビジョンを共に設計しましょう。
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button
+                                class="executive-btn text-white font-bold py-4 px-8 rounded-lg text-lg transition-all">
+                                📊 認知構造診断を申し込む
+                            </button>
+                            <button
+                                class="border border-blue-400 text-blue-300 font-bold py-4 px-8 rounded-lg text-lg hover:bg-blue-400/10 transition-all">
+                                📋 詳細資料をダウンロード
+                            </button>
+                        </div>
+
+                        <!-- 連絡先情報 -->
+                        <div class="mt-8 pt-6 border-t border-slate-600">
+                            <p class="text-slate-400 mb-2">お問い合わせ</p>
+                            <p class="text-blue-300 font-semibold">
+                                contact@sakane.dev
+                            </p>
+                            <p class="text-slate-500 text-sm mt-2">
+                                ※ エグゼクティブレベル限定での個別相談を承っております
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 最終メッセージ -->
+                    <div class="text-xl text-slate-300 italic executive-text">
+                        「<strong class="premium-emphasis">構造知性の時代</strong>が始まります。<br />
+                        準備はできていますか？」
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // ESI Strategic Oracle Implementation
+        class ESIOracle {
+            constructor() {
+                this.apiKey = localStorage.getItem('gemini_api_key');
+                this.currentPersona = 'executive';
+                this.terminalOutput = document.getElementById('terminalOutput');
+                this.userQueryInput = document.getElementById('userQuery');
+                this.init();
+            }
+
+            init() {
+                this.checkApiKey();
+                this.setupEventListeners();
+                this.setupPersonaSelection();
+                this.setupAmbientGlow();
+            }
+
+            setupAmbientGlow() {
+                this.updateGlow(this.currentPersona);
+            }
+
+            updateGlow(persona) {
+                const terminal = document.querySelector('.terminal-window');
+                terminal.classList.remove('glow-executive', 'glow-investor', 'glow-startup');
+                terminal.classList.add(`glow-${persona}`);
+            }
+
+            checkApiKey() {
+                const container = document.getElementById('apiKeyContainer');
+                const interfaceDiv = document.getElementById('oracleInterface');
+
+                if (this.apiKey) {
+                    container.classList.add('hidden');
+                    interfaceDiv.classList.remove('hidden');
+                    document.getElementById('changeKeyBtn').classList.remove('hidden');
+                    this.appendSystemMessage('System ready. Structural Intelligence Core active.');
+                } else {
+                    container.classList.remove('hidden');
+                    interfaceDiv.classList.add('hidden');
+                    document.getElementById('changeKeyBtn').classList.add('hidden');
+                }
+            }
+
+            setupEventListeners() {
+                // API Key handling
+                document.getElementById('saveKeyBtn').addEventListener('click', () => {
+                    const input = document.getElementById('apiKey');
+                    if (input.value.trim()) {
+                        this.apiKey = input.value.trim();
+                        localStorage.setItem('gemini_api_key', this.apiKey);
+                        this.checkApiKey();
+                    }
+                });
+
+                // Query submission
+                document.getElementById('submitQueryBtn').addEventListener('click', () => this.handleQuery());
+                this.userQueryInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.handleQuery();
+                });
+
+                // Change Key button
+                document.getElementById('changeKeyBtn').addEventListener('click', () => {
+                    if (confirm('Reset API Key? (This will clear the current session)')) {
+                        localStorage.removeItem('gemini_api_key');
+                        this.apiKey = null;
+                        this.checkApiKey();
+                        this.terminalOutput.innerHTML = ''; // Clear terminal on reset
+                    }
+                });
+
+                // Copy Log button
+                document.getElementById('copyLogBtn').addEventListener('click', () => this.copyLog());
+
+                // Clear Log button
+                document.getElementById('clearLogBtn').addEventListener('click', () => this.clearLog());
+            }
+
+            clearLog() {
+                if (confirm('Clear terminal log?')) {
+                    this.terminalOutput.innerHTML = '';
+                    this.appendSystemMessage('Log cleared. System ready.');
+                }
+            }
+
+            async copyLog() {
+                const text = this.terminalOutput.innerText;
+                try {
+                    await navigator.clipboard.writeText(text);
+
+                    // Visual feedback
+                    const btn = document.getElementById('copyLogBtn');
+                    const originalHTML = btn.innerHTML;
+                    btn.innerHTML = `
+                        <span class="text-[10px] text-green-400 mr-1">COPIED!</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                    `;
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy: ', err);
+                }
+            }
+
+            setupPersonaSelection() {
+                document.querySelectorAll('.persona-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        // Update UI
+                        document.querySelectorAll('.persona-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+
+                        // Update state
+                        this.currentPersona = btn.dataset.persona;
+                        this.updateGlow(this.currentPersona);
+
+                        // Terminal feedback
+                        this.appendSystemMessage(`Simulating Persona change... Switched to [${this.currentPersona.toUpperCase()}] mode.`);
+                    });
+                });
+            }
+
+            async handleQuery() {
+                const query = this.userQueryInput.value.trim();
+                if (!query) return;
+
+                // Clear input and show user message
+                this.userQueryInput.value = '';
+                this.userQueryInput.disabled = true;
+                this.appendUserMessage(query);
+
+                // Loading animation
+                const loadingId = this.appendLoadingMessage();
+                const terminal = document.querySelector('.terminal-window');
+                terminal.classList.add('analyzing-pulse');
+
+                try {
+                    const response = await this.callGeminiAPI(query);
+                    this.removeMessage(loadingId);
+                    await this.renderStructuredResponse(response);
+                } catch (error) {
+                    this.removeMessage(loadingId);
+                    this.appendSystemMessage(`Error: ${error.message}`, 'text-red-400');
+                } finally {
+                    terminal.classList.remove('analyzing-pulse');
+                    this.userQueryInput.disabled = false;
+                    this.userQueryInput.focus();
+                }
+            }
+
+            async callGeminiAPI(query) {
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${this.apiKey}`;
+
+                const systemPrompt = this.getSystemPrompt();
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{ text: `${systemPrompt}\n\nUser Situation: ${query}` }]
+                        }]
+                    })
+                });
+
+                if (!response.ok) throw new Error('API request failed');
+
+                const data = await response.json();
+                return data.candidates[0].content.parts[0].text;
+            }
+
+            getSystemPrompt() {
+                const basePrompt = `
+                    You are ESI-Oracle, a Socratic Intelligence designed to map the user's cognitive structure.
+
+                    **CORE DIRECTIVE**:
+                    1.  **DO NOT ANSWER** the user's problem directly.
+                    2.  **DECONSTRUCT** their assumptions using Socratic questioning.
+                    3.  **VISUALIZE** their mental model (or the missing logic) using a Mermaid.js diagram.
+
+                    **RESPONSE FORMAT**:
+                    Your response must strictly follow this structure:
+
+                    [SOCRATIC_ANALYSIS]
+                    (2-3 sentences analyzing the causal structure of their query. Use "desu/masu" Japanese tone. Be sharp but polite.)
+
+                    [SOCRATIC_QUESTION]
+                    (1 penetrating "Why?" or "How?" question that forces them to rethink the premise.)
+
+                    [COGNITIVE_MAP]
+                    \`\`\`mermaid
+                    graph TD
+                        A[User's Surface Problem] -->|Because| B(Assumption 1)
+                        B -->|Actually| C{Hidden Component}
+                        C -->|Leads to| D[True Structural Issue]
+                        style D fill:#b91c1c,stroke:#333,stroke-width:2px
+                    \`\`\`
+                    (The diagram should map the causality or a feedback loop relevant to the persona mode.)
+
+                    **PERSONA MODES**:
+               `;
+
+                const personas = {
+                    executive: `
+                        MODE: EXECUTIVE (Governance & Risk)
+                        Focus on: Hidden risks, organizational friction, and decision-making biases.
+                        Tone: Calm, authoritative, strategic.
+                        Question Style: "What mechanism guarantees X?", "Where is the single point of failure?"
+                    `,
+                    investor: `
+                        MODE: INVESTOR (Capital & Growth)
+                        Focus on: Unit economics, scalability bottlenecks, and market dynamics.
+                        Tone: Analytical, skeptical, ROI-focused.
+                        Question Style: "Why is this not zero?", "What is the unfair advantage?"
+                    `,
+                    startup: `
+                        MODE: STARTUP (Chaos & Pivot)
+                        Focus on: PMF (Product-Market Fit), speed of iteration, and "fake progress".
+                        Tone: Energetic, challenging, urgent.
+                        Question Style: "Is this a vanity metric?", "Why not ship today?"
+                    `
+                };
+
+                return `${basePrompt}\n${personas[this.currentPersona]}`;
+            }
+
+            appendSystemMessage(text, className = 'text-blue-400') {
+                const div = document.createElement('div');
+                div.className = `mb-2 ${className}`;
+                div.textContent = `> ${text}`;
+                this.terminalOutput.appendChild(div);
+                this.scrollToBottom();
+            }
+
+            appendUserMessage(text) {
+                const div = document.createElement('div');
+                div.className = 'mb-4 text-white font-bold border-l-2 border-slate-600 pl-2';
+                div.textContent = text;
+                this.terminalOutput.appendChild(div);
+                this.scrollToBottom();
+            }
+
+            appendLoadingMessage() {
+                const id = 'loading-' + Date.now();
+                const div = document.createElement('div');
+                div.id = id;
+                div.className = 'mb-2 text-yellow-400 typing-cursor';
+                div.textContent = 'Analyzing causality structures...';
+                this.terminalOutput.appendChild(div);
+                this.scrollToBottom();
+                return id;
+            }
+
+            removeMessage(id) {
+                const el = document.getElementById(id);
+                if (el) el.remove();
+            }
+
+            async renderStructuredResponse(text) {
+                // Parse sections
+                const analysisMatch = text.match(/\[SOCRATIC_ANALYSIS\]([\s\S]*?)(?=\[SOCRATIC_QUESTION\]|$)/);
+                const questionMatch = text.match(/\[SOCRATIC_QUESTION\]([\s\S]*?)(?=\[COGNITIVE_MAP\]|$)/);
+                const mapMatch = text.match(/\[COGNITIVE_MAP\]([\s\S]*?)$/);
+
+                const analysis = analysisMatch ? analysisMatch[1].trim() : '';
+                const question = questionMatch ? questionMatch[1].trim() : '';
+                const mapRaw = mapMatch ? mapMatch[1].trim() : '';
+
+                // Helper to extract mermaid code from markdown blocks
+                const extractMermaid = (raw) => {
+                    const match = raw.match(/```mermaid([\s\S]*?)```/);
+                    return match ? match[1].trim() : raw;
+                };
+
+                const mermaidCode = extractMermaid(mapRaw);
+
+                // Render Analysis
+                if (analysis) {
+                    this.appendSystemMessage('STRUCTURAL ANALYSIS:', 'text-blue-400 font-bold mt-4');
+                    await this.typewriterEffect(analysis, 'text-slate-300 mb-4');
+                }
+
+                // Render Question
+                if (question) {
+                    this.appendSystemMessage('SOCRATIC INQUIRY:', 'text-yellow-400 font-bold mt-4');
+                    await this.typewriterEffect(question, 'text-yellow-100 italic mb-6 text-lg');
+                }
+
+                // Render Map
+                if (mermaidCode) {
+                    this.appendSystemMessage('COGNITIVE MAPPING:', 'text-purple-400 font-bold mt-2');
+                    const mapContainer = document.createElement('div');
+                    mapContainer.className = 'mermaid my-4 bg-slate-900/50 p-4 rounded-lg border border-slate-700 overflow-x-auto';
+                    mapContainer.textContent = mermaidCode;
+                    this.terminalOutput.appendChild(mapContainer);
+
+                    try {
+                        await mermaid.run({ nodes: [mapContainer] });
+                    } catch (e) {
+                        console.error('Mermaid render error:', e);
+                        mapContainer.textContent = 'Diagram render failed. Raw code:\n' + mermaidCode;
+                    }
+                    this.scrollToBottom();
+                }
+
+                // Fallback for unstructured response
+                if (!analysis && !question && !mapRaw) {
+                    await this.typewriterEffect(text, 'text-slate-300');
+                }
+            }
+
+            appendTypewriterMessage(text) {
+                // Legacy wrapper
+                this.typewriterEffect(text, 'text-slate-300');
+            }
+
+            typewriterEffect(text, className) {
+                return new Promise((resolve) => {
+                    const div = document.createElement('div');
+                    div.className = `oracle-response ${className}`;
+                    this.terminalOutput.appendChild(div);
+
+                    let i = 0;
+                    const speed = 10;
+
+                    const type = () => {
+                        if (i < text.length) {
+                            div.textContent += text.charAt(i);
+                            i++;
+                            this.scrollToBottom();
+                            setTimeout(type, speed);
+                        } else {
+                            resolve();
+                        }
+                    };
+
+                    type();
+                });
+            }
+
+            scrollToBottom() {
+                this.terminalOutput.scrollTop = this.terminalOutput.scrollHeight;
+            }
+        }
+
+        // 高度なスクロール監視とナビゲーション
+        class ESIInteractionManager {
+            constructor() {
+                this.sections = document.querySelectorAll(".section-transition");
+                this.navDots = document.querySelectorAll(".nav-dot");
+                this.progressBar = document.getElementById("progressBar");
+                this.currentSection = 0;
+                this.init();
+            }
+
+            init() {
+                this.setupIntersectionObserver();
+                this.setupScrollProgress();
+                this.setupNavigation();
+                this.setupSmoothScrolling();
+                this.setupKeyboardNavigation();
+            }
+
+            setupIntersectionObserver() {
+                const options = {
+                    threshold: 0.3,
+                    rootMargin: "0px 0px -100px 0px",
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                            this.updateActiveNav(entry.target);
+                        }
+                    });
+                }, options);
+
+                this.sections.forEach((section) => observer.observe(section));
+            }
+
+            setupScrollProgress() {
+                window.addEventListener("scroll", () => {
+                    const scrolled =
+                        (window.scrollY /
+                            (document.documentElement.scrollHeight - window.innerHeight)) *
+                        100;
+                    this.progressBar.style.width = scrolled + "%";
+                });
+            }
+
+            updateActiveNav(activeSection) {
+                const sectionId =
+                    activeSection.id || activeSection.closest("[id]").id;
+                this.navDots.forEach((dot, index) => {
+                    dot.classList.toggle("active", dot.dataset.section === sectionId);
+                });
+            }
+
+            setupNavigation() {
+                this.navDots.forEach((dot) => {
+                    dot.addEventListener("click", () => {
+                        const targetId = dot.dataset.section;
+                        const target = document.getElementById(targetId);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start",
+                            });
+                        }
+                    });
+                });
+            }
+
+            setupSmoothScrolling() {
+                document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                    anchor.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        const target = document.querySelector(
+                            anchor.getAttribute("href")
+                        );
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start",
+                            });
+                        }
+                    });
+                });
+            }
+
+            setupKeyboardNavigation() {
+                document.addEventListener("keydown", (e) => {
+                    if (e.key === "ArrowDown" && e.ctrlKey) {
+                        e.preventDefault();
+                        this.navigateToNext();
+                    } else if (e.key === "ArrowUp" && e.ctrlKey) {
+                        e.preventDefault();
+                        this.navigateToPrevious();
+                    }
+                });
+            }
+
+            navigateToNext() {
+                if (this.currentSection < this.navDots.length - 1) {
+                    this.currentSection++;
+                    this.navDots[this.currentSection].click();
+                }
+            }
+
+            navigateToPrevious() {
+                if (this.currentSection > 0) {
+                    this.currentSection--;
+                    this.navDots[this.currentSection].click();
+                }
+            }
+        }
+
+        // エグゼクティブ向け高度機能
+        class ExecutiveFeatures {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.setupPrintOptimization();
+                this.setupDataExport();
+                this.setupAnalytics();
+            }
+
+            setupPrintOptimization() {
+                window.addEventListener("beforeprint", () => {
+                    document.body.classList.add("print-mode");
+                });
+
+                window.addEventListener("afterprint", () => {
+                    document.body.classList.remove("print-mode");
+                });
+            }
+
+            setupDataExport() {
+                // エグゼクティブサマリーのデータエクスポート機能
+                const exportButton = document.createElement("button");
+                exportButton.className =
+                    "fixed bottom-6 left-6 bg-slate-800 text-white p-3 rounded-full shadow-lg hover:bg-slate-700 transition-all";
+                exportButton.innerHTML = "📊";
+                exportButton.title = "データをエクスポート";
+                exportButton.onclick = this.exportExecutiveSummary;
+                document.body.appendChild(exportButton);
+            }
+
+            exportExecutiveSummary() {
+                const data = {
+                    title: "ESI Executive Summary",
+                    statistics: {
+                        executiveDecisionProblems: "72%",
+                        maSuccessRate: "50%",
+                        esiROI: "70%+",
+                    },
+                    keyPoints: [
+                        "McKinsey 2,207名調査：72%のエグゼクティブが意思決定に問題を認識",
+                        "M&A成功率わずか50%（コイン投げレベル）",
+                        "ESI導入によるROI 70%+の実証済み効果",
+                    ],
+                    timestamp: new Date().toISOString(),
+                };
+
+                const blob = new Blob([JSON.stringify(data, null, 2)], {
+                    type: "application/json",
+                });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "ESI-ExecutiveSummary.json";
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+
+            setupAnalytics() {
+                // 読了時間の計測
+                let startTime = Date.now();
+                let sections = [];
+
+                window.addEventListener("beforeunload", () => {
+                    const readingTime = Math.round((Date.now() - startTime) / 1000);
+                    localStorage.setItem("esi-reading-time", readingTime);
+                });
+            }
+        }
+
+        // 初期化
+        document.addEventListener("DOMContentLoaded", () => {
+            new ESIInteractionManager();
+            new ExecutiveFeatures();
+            new ESIOracle();
+
+            // 初期アニメーション
+            setTimeout(() => {
+                document.querySelector("#header").classList.add("visible");
+            }, 300);
+        });
+
+        // パフォーマンス監視
+        if ("performance" in window) {
+            window.addEventListener("load", () => {
+                setTimeout(() => {
+                    const perfData = performance.getEntriesByType("navigation")[0];
+                    console.log(
+                        `Page load time: ${perfData.loadEventEnd - perfData.loadEventStart
+                        }ms`
+                    );
+                }, 0);
+            });
+        }
+    </script>
+    <footer class="bg-stone-800 rounded-xl text-white mt-16 pb-20">
+        <div class="container mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center text-sm text-stone-100">
+            <p>Sakane Dev Studio | CONFIDENTIAL</p>
+            <p>
+                &copy; 2025 Yasuyuki Sakane (yasuyuki@sakane.dev). All Rights
+                Reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
