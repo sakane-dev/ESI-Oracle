@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGJ66MDPM8"></script>
     <script>
@@ -12,6 +13,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ESI Interactive Briefing - 構造知性による認知革命</title>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: false, theme: 'dark', fontFamily: 'Inter' });
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* エグゼクティブ向けプレミアムデザイン */
@@ -306,6 +317,57 @@
             box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
         }
 
+        /* Cognitive UI: Typography */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .terminal-window {
+            font-family: 'JetBrains Mono', monospace;
+            transition: box-shadow 0.5s ease, border-color 0.5s ease;
+        }
+
+        /* Cognitive UI: Ambient Glows */
+        .glow-executive {
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
+            /* Blue */
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        .glow-investor {
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);
+            /* Emerald/Green */
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .glow-startup {
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.15);
+            /* Purple */
+            border-color: rgba(168, 85, 247, 0.4);
+        }
+
+        /* Cognitive UI: Breathing Intelligence */
+        @keyframes breathe {
+            0% {
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+                border-color: rgba(59, 130, 246, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 50px rgba(59, 130, 246, 0.4);
+                border-color: rgba(59, 130, 246, 0.8);
+            }
+
+            100% {
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+                border-color: rgba(59, 130, 246, 0.3);
+            }
+        }
+
+        .analyzing-pulse {
+            animation: breathe 2s infinite ease-in-out;
+        }
+
         .oracle-response {
             white-space: pre-wrap;
             line-height: 1.6;
@@ -314,10 +376,12 @@
 </head>
 
 <body class="bg-slate-900 text-gray-100 min-h-screen gradient-bg">
+    <!-- 進捗インジケーター -->
     <div class="progress-indicator">
         <div class="progress-bar" id="progressBar"></div>
     </div>
 
+    <!-- フローティングナビゲーション -->
     <nav class="floating-nav" id="floatingNav">
         <div class="nav-dot active" data-section="header" title="ESI概要"></div>
         <div class="nav-dot" data-section="author" title="坂根康之"></div>
@@ -325,15 +389,13 @@
         <div class="nav-dot" data-section="why-esi" title="必要性"></div>
         <div class="nav-dot" data-section="esi-architecture" title="アーキテクチャ"></div>
         <div class="nav-dot" data-section="not-choosing" title="制約設計"></div>
-        <div class="nav-dot" data-section="implementation" title="実装"></div>
-        <div class="nav-dot" data-section="japan-specific" title="日本固有課題"></div>
         <div class="nav-dot" data-section="competitive-advantage" title="競合優位"></div>
-        <div class="nav-dot" data-section="socratic-engine" title="ソクラテス問答"></div>
-        <div class="nav-dot" data-section="esi-oracle" title="ESI Oracle"></div>
+        <div class="nav-dot" data-section="implementation" title="実装"></div>
         <div class="nav-dot" data-section="conclusion" title="結論"></div>
     </nav>
 
     <div class="container mx-auto px-4 py-8 relative z-10">
+        <!-- Header -->
         <header class="text-center mb-16 section-transition" id="header">
             <h1 class="text-6xl font-bold text-transparent bg-clip-text premium-gradient mb-6">
                 ESI: Executive Strategic Intelligence
@@ -343,6 +405,7 @@
                 <span class="premium-emphasis text-2xl">構造知性アーキテクチャによる持続的競争優位の創出</span>
             </p>
 
+            <!-- 重要統計のエグゼクティブサマリー -->
             <div class="grid lg:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
                 <div class="stat-card p-6 rounded-xl">
                     <div class="text-4xl font-bold gold-accent mb-2">72%</div>
@@ -366,6 +429,7 @@
             </div>
         </header>
 
+        <!-- 坂根康之氏について -->
         <section id="author" class="mb-16 section-transition">
             <div class="executive-card rounded-2xl p-10">
                 <h2 class="text-4xl font-bold text-white mb-8 border-l-4 border-blue-400 pl-6">
@@ -428,6 +492,7 @@
                             </div>
                         </div>
 
+                        <!-- 実績ハイライト -->
                         <div
                             class="mt-8 p-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg border border-blue-400/20">
                             <h4 class="text-blue-300 font-bold mb-2">実証済み成果</h4>
@@ -441,6 +506,7 @@
             </div>
         </section>
 
+        <!-- ESIとは何か：独自性の明確化 -->
         <section id="what-is-esi" class="mb-16 section-transition">
             <div class="glass-effect rounded-2xl p-8">
                 <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
@@ -458,6 +524,7 @@
                     </p>
                 </div>
 
+                <!-- 思考フレームワーク比較 -->
                 <div class="space-y-6">
                     <h3 class="text-2xl font-bold text-white mb-6">
                         既存思考フレームワークとの決定的差異
@@ -519,12 +586,14 @@
             </div>
         </section>
 
+        <!-- なぜESIが必要なのか -->
         <section id="why-esi" class="mb-16 section-transition">
             <div class="glass-effect rounded-2xl p-8">
                 <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
                     なぜ2025年の非線形AI時代にESIが不可欠なのか
                 </h2>
 
+                <!-- 衝撃的統計データ -->
                 <div class="mb-8 bg-red-900 bg-opacity-30 p-6 rounded-xl border-2 border-red-400">
                     <h3 class="text-2xl font-bold text-red-300 mb-4">
                         🚨 McKinsey衝撃レポート：エグゼクティブ認知危機の実態
@@ -556,6 +625,7 @@
                     </div>
                 </div>
 
+                <!-- 戦略プロジェクト失敗の具体的コスト -->
                 <div class="mb-8">
                     <h3 class="text-2xl font-bold text-cyan-400 mb-6">
                         認知バイアスによる巨額損失の実態
@@ -605,12 +675,14 @@
                     </div>
                 </div>
 
+                <!-- ESIが解決する具体的認知課題 -->
                 <div class="mb-8">
                     <h3 class="text-2xl font-bold text-cyan-400 mb-6">
                         ESIが構造的に解決する認知心理学的課題
                     </h3>
 
                     <div class="space-y-6">
+                        <!-- 過信バイアス -->
                         <div class="bg-slate-800 p-6 rounded-lg">
                             <h4 class="text-red-300 font-bold text-lg mb-3">
                                 🎯 過信バイアス（Overconfidence Bias）
@@ -637,6 +709,7 @@
                             </div>
                         </div>
 
+                        <!-- 確証バイアス -->
                         <div class="bg-slate-800 p-6 rounded-lg">
                             <h4 class="text-yellow-300 font-bold text-lg mb-3">
                                 🔍 確証バイアス（Confirmation Bias）
@@ -663,6 +736,7 @@
                             </div>
                         </div>
 
+                        <!-- アンカリングバイアス -->
                         <div class="bg-slate-800 p-6 rounded-lg">
                             <h4 class="text-purple-300 font-bold text-lg mb-3">
                                 ⚓ アンカリングバイアス（Anchoring Bias）
@@ -691,6 +765,7 @@
                     </div>
                 </div>
 
+                <!-- AI時代特有の認知的脅威 -->
                 <div class="mb-8">
                     <h3 class="text-2xl font-bold text-cyan-400 mb-6">
                         2025年AI時代の認知的脅威構造
@@ -737,6 +812,7 @@
                     </div>
                 </div>
 
+                <!-- CFO/CIO特化の戦略的合理性 -->
                 <div
                     class="bg-gradient-to-r from-cyan-900 to-blue-900 bg-opacity-30 p-6 rounded-xl border border-cyan-400">
                     <h3 class="text-cyan-300 font-bold text-xl mb-4">
@@ -779,6 +855,7 @@
                     </div>
                 </div>
 
+                <!-- スタノヴィッチ知能分離理論 -->
                 <div class="mt-8 bg-slate-800 p-6 rounded-xl">
                     <h3 class="text-xl font-bold text-cyan-400 mb-4">
                         スタノヴィッチ知能分離理論：ESI必要性の理論的根拠
@@ -797,12 +874,14 @@
             </div>
         </section>
 
+        <!-- ESI認知アーキテクチャ -->
         <section id="esi-architecture" class="mb-16 section-transition">
             <div class="glass-effect rounded-2xl p-8">
                 <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
                     ESI認知アーキテクチャ：責務分離4層モデル
                 </h2>
 
+                <!-- 拡張認知システム -->
                 <div class="mb-8">
                     <h3 class="text-2xl font-bold text-cyan-400 mb-6">
                         拡張認知システム（System 3到達モデル）
@@ -832,12 +911,14 @@
                     </div>
                 </div>
 
+                <!-- 責務分離4層アーキテクチャ -->
                 <div class="space-y-4">
                     <h3 class="text-2xl font-bold text-cyan-400">
                         責務分離4層アーキテクチャ
                     </h3>
 
                     <div class="space-y-6">
+                        <!-- Layer 4 -->
                         <div
                             class="bg-gradient-to-r from-green-900 to-emerald-900 bg-opacity-30 p-6 rounded-lg border border-green-400">
                             <h4 class="text-green-300 font-bold text-lg mb-2">
@@ -853,6 +934,7 @@
                             </ul>
                         </div>
 
+                        <!-- Layer 3 -->
                         <div
                             class="bg-gradient-to-r from-blue-900 to-cyan-900 bg-opacity-30 p-6 rounded-lg border border-blue-400">
                             <h4 class="text-blue-300 font-bold text-lg mb-2">
@@ -866,6 +948,7 @@
                             </ul>
                         </div>
 
+                        <!-- Layer 2 -->
                         <div
                             class="bg-gradient-to-r from-orange-900 to-red-900 bg-opacity-30 p-6 rounded-lg border border-orange-400">
                             <h4 class="text-orange-300 font-bold text-lg mb-2">
@@ -879,6 +962,7 @@
                             </ul>
                         </div>
 
+                        <!-- Layer 1 -->
                         <div
                             class="bg-gradient-to-r from-purple-900 to-indigo-900 bg-opacity-30 p-6 rounded-lg border border-purple-400">
                             <h4 class="text-purple-300 font-bold text-lg mb-2">
@@ -896,6 +980,7 @@
             </div>
         </section>
 
+        <!-- 「選ばないこと」の戦略的制約設計 -->
         <section id="not-choosing" class="mb-16 section-transition">
             <div class="glass-effect rounded-2xl p-8">
                 <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
@@ -976,6 +1061,7 @@
             </div>
         </section>
 
+        <!-- 実装方法論 -->
         <section id="implementation" class="mb-16 section-transition">
             <div class="glass-effect rounded-2xl p-8">
                 <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
@@ -983,6 +1069,7 @@
                 </h2>
 
                 <div class="space-y-8">
+                    <!-- Phase 1 -->
                     <div class="relative flex items-center">
                         <div
                             class="bg-red-600 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white z-10">
@@ -1008,6 +1095,7 @@
                         </div>
                     </div>
 
+                    <!-- Phase 2 -->
                     <div class="relative flex items-center">
                         <div
                             class="bg-orange-600 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white z-10">
@@ -1045,6 +1133,7 @@
                         </div>
                     </div>
 
+                    <!-- Phase 3 -->
                     <div class="relative flex items-center">
                         <div
                             class="bg-green-600 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white z-10">
@@ -1075,6 +1164,7 @@
             </div>
         </section>
 
+        <!-- 日本企業特有課題への対応 -->
         <section id="japan-specific" class="mb-16 section-transition">
             <div class="glass-effect rounded-2xl p-8">
                 <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
@@ -1165,12 +1255,14 @@
             </div>
         </section>
 
+        <!-- 競合差別化 -->
         <section id="competitive-advantage" class="mb-16 section-transition">
             <div class="glass-effect rounded-2xl p-8">
                 <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
                     なぜ従来コンサルティングでは限界があるのか？
                 </h2>
 
+                <!-- 根本的問題の可視化 -->
                 <div class="mb-8 bg-red-900 bg-opacity-30 p-6 rounded-xl border-2 border-red-400">
                     <h3 class="text-2xl font-bold text-red-300 mb-4">
                         🚨 従来コンサルティングの構造的限界
@@ -1201,12 +1293,14 @@
                     </div>
                 </div>
 
+                <!-- アーキテクチャ層の差異 -->
                 <div class="mb-8">
                     <h3 class="text-2xl font-bold text-cyan-400 mb-6">
                         OS層 vs アプリケーション層：決定的差異の可視化
                     </h3>
 
                     <div class="grid lg:grid-cols-2 gap-8">
+                        <!-- 従来コンサルのモノリシック構造 -->
                         <div class="bg-gray-800 p-6 rounded-lg border border-gray-600">
                             <h4 class="text-gray-300 font-bold text-lg mb-4 text-center">
                                 従来コンサル：モノリシック思考
@@ -1232,6 +1326,7 @@
                             </div>
                         </div>
 
+                        <!-- ESI責務分離アーキテクチャ -->
                         <div class="bg-slate-800 p-6 rounded-lg border border-cyan-400">
                             <h4 class="text-cyan-300 font-bold text-lg mb-4 text-center">
                                 ESI：責務分離アーキテクチャ
@@ -1278,12 +1373,14 @@
                     </div>
                 </div>
 
+                <!-- 具体的失敗事例による従来手法の限界証明 -->
                 <div class="mb-8">
                     <h3 class="text-2xl font-bold text-cyan-400 mb-6">
                         従来コンサル手法では解決不可能な構造的課題
                     </h3>
 
                     <div class="space-y-6">
+                        <!-- BCG DRIフレームワークの限界 -->
                         <div class="bg-slate-800 p-6 rounded-lg">
                             <h4 class="text-yellow-300 font-bold text-lg mb-3">
                                 📊 BCG DRIフレームワークの構造的問題
@@ -1314,6 +1411,7 @@
                             </div>
                         </div>
 
+                        <!-- MECE思考の認知科学的限界 -->
                         <div class="bg-slate-800 p-6 rounded-lg">
                             <h4 class="text-purple-300 font-bold text-lg mb-3">
                                 🧩 MECE思考の認知科学的限界
@@ -1340,6 +1438,7 @@
                             </div>
                         </div>
 
+                        <!-- アジャイル思考の日本企業不適合 -->
                         <div class="bg-slate-800 p-6 rounded-lg">
                             <h4 class="text-red-300 font-bold text-lg mb-3">
                                 ⚡ アジャイル思考の日本企業構造的不適合
@@ -1368,6 +1467,7 @@
                     </div>
                 </div>
 
+                <!-- レイヤー別競合分析表 -->
                 <div class="mb-8">
                     <h3 class="text-2xl font-bold text-cyan-400 mb-6">
                         レイヤー別競合能力分析：ESIの圧倒的優位性
@@ -1447,6 +1547,7 @@
                     </div>
                 </div>
 
+                <!-- ESI独自価値提案の明確化 -->
                 <div
                     class="bg-gradient-to-r from-cyan-900 to-blue-900 bg-opacity-50 p-8 rounded-xl border border-cyan-400">
                     <h3 class="text-3xl font-bold text-cyan-300 mb-6 text-center">
@@ -1552,114 +1653,118 @@
             </div>
         </section>
 
+        <!-- ソクラテス問答エンジン -->
         <section id="socratic-engine" class="mb-16 section-transition">
-            <div class="glass-effect rounded-2xl p-8 border border-cyan-500/30 shadow-[0_0_60px_rgba(8,145,178,0.15)]">
-                <div
-                    class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-slate-700 pb-4">
-                    <div>
-                        <h2 class="text-3xl font-normal text-white">
-                            Socratic Cognitive Mirror <span
-                                class="text-xs text-yellow-400 align-middle ml-2 font-mono border border-yellow-400/30 px-2 py-1 rounded">Interactive</span>
-                        </h2>
-                        <p class="text-slate-400 text-sm mt-1">
-                            ソクラテス問答による「思考の構造化」プロセスを体験してください。<br>
-                            右側の「認知オーブ」は、あなたの思考の構造化レベルとバイアス状態をリアルタイムに投影します。
+            <div class="glass-effect rounded-2xl p-8">
+                <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-cyan-400 pl-4">
+                    ソクラテス問答エンジン：思考深化の自動化
+                </h2>
+
+                <div class="bg-slate-800 p-6 rounded-xl mb-8">
+                    <h3 class="text-cyan-400 font-bold text-lg mb-4">
+                        基本原理：答えではなく「問い」による思考進化
+                    </h3>
+                    <p class="text-slate-200 leading-relaxed">
+                        ESIのAIは答えを与えるのではなく、思考を深めるための<strong
+                            class="text-cyan-300">「問い」</strong>を投げかけます。これにより、ユーザー自身のメタ認知能力が向上し、持続的な認知成長が実現されます。
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-6">
+                    <div class="bg-blue-900 bg-opacity-30 p-6 rounded-lg border border-blue-400">
+                        <h4 class="text-blue-300 font-bold text-lg mb-3">
+                            Level 1: 構造化
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-blue-800 bg-opacity-50 p-3 rounded">
+                                <p class="text-blue-200 text-sm font-medium">質問例</p>
+                                <p class="text-blue-100 text-xs mt-1">
+                                    「この問題の真の目的は何ですか？」
+                                </p>
+                            </div>
+                            <div class="bg-blue-800 bg-opacity-50 p-3 rounded">
+                                <p class="text-blue-200 text-sm font-medium">質問例</p>
+                                <p class="text-blue-100 text-xs mt-1">
+                                    「判断の制約条件を明確化できますか？」
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-blue-200 mt-3">→ 問題の本質的理解の促進</p>
+                    </div>
+
+                    <div class="bg-yellow-900 bg-opacity-30 p-6 rounded-lg border border-yellow-400">
+                        <h4 class="text-yellow-300 font-bold text-lg mb-3">
+                            Level 2: 反証
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-yellow-800 bg-opacity-50 p-3 rounded">
+                                <p class="text-yellow-200 text-sm font-medium">質問例</p>
+                                <p class="text-yellow-100 text-xs mt-1">
+                                    「その前提が偽である可能性は？」
+                                </p>
+                            </div>
+                            <div class="bg-yellow-800 bg-opacity-50 p-3 rounded">
+                                <p class="text-yellow-200 text-sm font-medium">質問例</p>
+                                <p class="text-yellow-100 text-xs mt-1">
+                                    「逆の結論を支持するデータは？」
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-yellow-200 mt-3">
+                            → 確証バイアスの構造的克服
+                        </p>
+                    </div>
+
+                    <div class="bg-purple-900 bg-opacity-30 p-6 rounded-lg border border-purple-400">
+                        <h4 class="text-purple-300 font-bold text-lg mb-3">
+                            Level 3: メタ認知
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="bg-purple-800 bg-opacity-50 p-3 rounded">
+                                <p class="text-purple-200 text-sm font-medium">質問例</p>
+                                <p class="text-purple-100 text-xs mt-1">
+                                    「なぜ今、そのように感じたのか？」
+                                </p>
+                            </div>
+                            <div class="bg-purple-800 bg-opacity-50 p-3 rounded">
+                                <p class="text-purple-200 text-sm font-medium">質問例</p>
+                                <p class="text-purple-100 text-xs mt-1">
+                                    「その思考パターンは過去の成功体験に影響されているか？」
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-purple-200 mt-3">
+                            → 思考プロセス自体への気づき
                         </p>
                     </div>
                 </div>
 
-                <div class="grid lg:grid-cols-2 gap-8">
-                    <div class="flex flex-col h-[500px] min-h-[400px] resize-y overflow-hidden">
-                        <!-- Toolbar -->
-                        <div
-                            class="bg-slate-800 p-2 rounded-t-lg border border-slate-700 border-b-0 flex justify-end gap-2">
-                            <button id="socraticCopyBtn"
-                                class="text-xs flex items-center gap-1 text-slate-400 hover:text-white transition-colors px-2 py-1 rounded hover:bg-slate-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                                </svg>
-                                Copy Log
-                            </button>
-                            <button id="socraticClearBtn"
-                                class="text-xs flex items-center gap-1 text-slate-400 hover:text-red-400 transition-colors px-2 py-1 rounded hover:bg-slate-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
-                                Clear Log
-                            </button>
+                <div class="mt-8 bg-green-900 bg-opacity-30 p-6 rounded-xl border border-green-400">
+                    <h3 class="text-green-300 font-bold text-lg mb-3">
+                        実装効果の定量化
+                    </h3>
+                    <div class="grid lg:grid-cols-3 gap-4 text-center">
+                        <div>
+                            <div class="text-2xl font-bold text-green-300 mb-1">85%</div>
+                            <p class="text-sm text-green-200">バイアス検出精度向上</p>
                         </div>
-                        <div id="socraticChatHistory"
-                            class="flex-1 overflow-y-auto bg-slate-900/50 p-4 space-y-4 border border-slate-700 border-b-0">
-                            <div class="flex gap-3">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-cyan-900 flex items-center justify-center flex-shrink-0 border border-cyan-500 text-xs">
-                                    ESI</div>
-                                <div class="bg-slate-800 p-3 rounded-lg rounded-tl-none text-slate-300 text-sm">
-                                    あなたが今、組織で抱えている「解決不能に見える問題」は何ですか？<br>
-                                    その問題の「前提」を一緒に解き明かしましょう。
-                                </div>
-                            </div>
+                        <div>
+                            <div class="text-2xl font-bold text-cyan-300 mb-1">60%</div>
+                            <p class="text-sm text-cyan-200">思考深度の増加</p>
                         </div>
-
-                        <div class="bg-slate-800 p-4 rounded-b-lg border border-slate-700">
-                            <div class="flex gap-2">
-                                <input type="text" id="socraticInput"
-                                    class="flex-1 bg-slate-900 border border-slate-600 rounded px-3 py-2 text-white focus:outline-none focus:border-cyan-500 transition-colors font-mono text-sm"
-                                    placeholder="例：部下が自律的に動かない、イノベーションが起きない..." autocomplete="off">
-                                <button id="socraticSubmit"
-                                    class="bg-cyan-700 hover:bg-cyan-600 text-white px-4 py-2 rounded transition-colors text-sm font-bold">
-                                    問う
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="relative bg-slate-900 rounded-lg border border-slate-700 overflow-hidden h-full min-h-[500px] flex flex-col items-center justify-center">
-                        <div class="absolute top-4 left-4 z-10 space-y-2 font-mono text-xs">
-                            <div class="flex items-center gap-2">
-                                <span class="w-20 text-slate-400">STRUCTURE:</span>
-                                <div class="w-32 h-2 bg-slate-800 rounded overflow-hidden">
-                                    <div id="barStructure" class="h-full bg-cyan-500 transition-all duration-1000"
-                                        style="width: 10%"></div>
-                                </div>
-                                <span id="valStructure" class="text-cyan-400">10%</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="w-20 text-slate-400">BIAS:</span>
-                                <div class="w-32 h-2 bg-slate-800 rounded overflow-hidden">
-                                    <div id="barBias" class="h-full bg-red-500 transition-all duration-1000"
-                                        style="width: 50%"></div>
-                                </div>
-                                <span id="valBias" class="text-red-400">50%</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="w-20 text-slate-400">CLARITY:</span>
-                                <div class="w-32 h-2 bg-slate-800 rounded overflow-hidden">
-                                    <div id="barClarity" class="h-full bg-yellow-500 transition-all duration-1000"
-                                        style="width: 20%"></div>
-                                </div>
-                                <span id="valClarity" class="text-yellow-400">20%</span>
-                            </div>
-                        </div>
-
-                        <canvas id="cognitiveCanvas" class="absolute inset-0 w-full h-full"></canvas>
-
-                        <div class="absolute bottom-4 text-center z-10 opacity-70">
-                            <p id="orbStatus" class="text-xs text-slate-500 uppercase tracking-widest">Awaiting
-                                Cognitive Input</p>
+                        <div>
+                            <div class="text-2xl font-bold text-yellow-300 mb-1">45%</div>
+                            <p class="text-sm text-yellow-200">判断精度の改善</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ESI Strategic Oracle -->
         <section id="esi-oracle" class="mb-16 section-transition">
             <div class="glass-effect rounded-2xl p-1 relative overflow-hidden">
+                <!-- Glowing border effect -->
                 <div
                     class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 animate-pulse pointer-events-none">
                 </div>
@@ -1679,6 +1784,7 @@
                         </p>
                     </div>
 
+                    <!-- Settings Controls -->
                     <div class="absolute top-8 right-8">
                         <button id="changeKeyBtn"
                             class="bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white p-2 rounded-full transition-colors hidden"
@@ -1686,12 +1792,13 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                 fill="currentColor">
                                 <path fill-rule="evenodd"
-                                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.532 1.532 0 01-2.287-.947c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
                                     clip-rule="evenodd" />
                             </svg>
                         </button>
                     </div>
 
+                    <!-- API Key Input (Hidden when set) -->
                     <div id="apiKeyContainer"
                         class="max-w-md mx-auto mb-8 p-6 bg-slate-800 rounded-lg border border-slate-700">
                         <label class="block text-slate-300 text-sm font-bold mb-2" for="apiKey">
@@ -1711,7 +1818,9 @@
                         </p>
                     </div>
 
+                    <!-- Main Interface (Hidden until key set) -->
                     <div id="oracleInterface" class="hidden space-y-6">
+                        <!-- Persona Selection -->
                         <div class="grid grid-cols-3 gap-4 mb-6">
                             <button
                                 class="persona-btn active group relative p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 transition-all text-left"
@@ -1736,9 +1845,11 @@
                             </button>
                         </div>
 
-                        <div
-                            class="terminal-window rounded-lg overflow-hidden h-96 min-h-[300px] resize-y flex flex-col">
-                            <div class="terminal-header px-4 py-2 flex items-center justify-between">
+                        <!-- Terminal Output -->
+                        <div class="terminal-window rounded-lg overflow-hidden h-96 min-h-[350px] flex flex-col resize-y"
+                            style="max-height: 80vh">
+                            <div
+                                class="terminal-header px-4 py-2 flex items-center justify-between border-b border-slate-700 bg-slate-800/80">
                                 <div class="flex items-center space-x-2">
                                     <div class="terminal-dot bg-red-500"></div>
                                     <div class="terminal-dot bg-yellow-500"></div>
@@ -1746,14 +1857,28 @@
                                     <div class="ml-4 text-xs text-slate-400 font-mono">esi_core_v2.5.exe
                                         --structural-analysis</div>
                                 </div>
-                                <div class="flex gap-2">
-                                    <button id="oracleCopyBtn"
-                                        class="text-xs text-slate-500 hover:text-slate-300 transition-colors font-mono">
-                                        [COPY]
+                                <div class="flex items-center gap-2">
+                                    <button id="clearLogBtn"
+                                        class="text-slate-400 hover:text-red-400 transition-colors p-1 rounded hover:bg-slate-700 flex items-center gap-1 group"
+                                        title="Clear Log">
+                                        <span class="text-[10px] hidden group-hover:inline-block">CLEAR</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                            fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                clip-rule="evenodd" />
+                                        </svg>
                                     </button>
-                                    <button id="oracleClearBtn"
-                                        class="text-xs text-slate-500 hover:text-red-400 transition-colors font-mono">
-                                        [CLEAR]
+                                    <button id="copyLogBtn"
+                                        class="text-slate-400 hover:text-white transition-colors p-1 rounded hover:bg-slate-700 flex items-center gap-1 group"
+                                        title="Copy Full Log">
+                                        <span class="text-[10px] hidden group-hover:inline-block">COPY LOG</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                            fill="currentColor">
+                                            <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                                            <path
+                                                d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
+                                        </svg>
                                     </button>
                                 </div>
                             </div>
@@ -1783,9 +1908,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
 
+        <!-- コンクルージョン -->
         <section id="conclusion" class="mb-16 section-transition">
             <div class="executive-card rounded-2xl p-10 text-center">
                 <h2 class="text-5xl font-bold text-transparent bg-clip-text premium-gradient mb-8">
@@ -1857,6 +1982,7 @@
                         </div>
                     </div>
 
+                    <!-- CTA セクション -->
                     <div class="executive-card p-8 rounded-xl border-2 border-blue-400/30">
                         <h3 class="premium-emphasis font-bold text-2xl mb-6">
                             次のステップ
@@ -1877,6 +2003,7 @@
                             </button>
                         </div>
 
+                        <!-- 連絡先情報 -->
                         <div class="mt-8 pt-6 border-t border-slate-600">
                             <p class="text-slate-400 mb-2">お問い合わせ</p>
                             <p class="text-blue-300 font-semibold">
@@ -1888,6 +2015,7 @@
                         </div>
                     </div>
 
+                    <!-- 最終メッセージ -->
                     <div class="text-xl text-slate-300 italic executive-text">
                         「<strong class="premium-emphasis">構造知性の時代</strong>が始まります。<br />
                         準備はできていますか？」
@@ -1898,294 +2026,6 @@
     </div>
 
     <script>
-        // Socratic Visualizer Implementation
-        class SocraticVisualizer {
-            constructor() {
-                this.chatContainer = document.getElementById('socraticChatHistory');
-                this.input = document.getElementById('socraticInput');
-                this.submitBtn = document.getElementById('socraticSubmit');
-                this.copyBtn = document.getElementById('socraticCopyBtn');
-                this.clearBtn = document.getElementById('socraticClearBtn');
-                this.canvas = document.getElementById('cognitiveCanvas');
-                this.ctx = this.canvas.getContext('2d');
-
-                // State for Visualization
-                this.state = {
-                    structure: 0.1, // 0.0 - 1.0 (Order)
-                    bias: 0.5,      // 0.0 - 1.0 (Chaos/Red)
-                    clarity: 0.2,   // 0.0 - 1.0 (Brightness/Stability)
-                    phase: 0
-                };
-
-                this.apiKey = localStorage.getItem('gemini_api_key');
-                this.history = []; // Chat context
-
-                this.resize();
-                this.initEvents();
-                this.animate();
-
-                // Window resize handler
-                window.addEventListener('resize', () => this.resize());
-
-                // Container resize observer for dynamic sizing
-                this.resizeObserver = new ResizeObserver(() => this.resize());
-                this.resizeObserver.observe(this.canvas.parentElement);
-            }
-
-            resize() {
-                this.canvas.width = this.canvas.parentElement.clientWidth;
-                this.canvas.height = this.canvas.parentElement.clientHeight;
-            }
-
-            initEvents() {
-                this.submitBtn.addEventListener('click', () => this.handleInteraction());
-                this.input.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') this.handleInteraction();
-                });
-                this.copyBtn.addEventListener('click', () => this.copyLog());
-                this.clearBtn.addEventListener('click', () => this.clearLog());
-            }
-
-            copyLog() {
-                if (this.history.length === 0) return;
-
-                const logText = this.history.map(item => {
-                    const role = item.role === 'user' ? 'YOU' : 'ESI';
-                    const text = item.parts[0].text;
-                    return `[${role}]: ${text}`;
-                }).join('\n\n');
-
-                navigator.clipboard.writeText(logText).then(() => {
-                    const originalText = this.copyBtn.innerHTML;
-                    this.copyBtn.textContent = 'Copied!';
-                    setTimeout(() => {
-                        this.copyBtn.innerHTML = originalText;
-                    }, 2000);
-                });
-            }
-
-            clearLog() {
-                if (!confirm('チャット履歴を消去してもよろしいですか？')) return;
-
-                this.history = [];
-                this.chatContainer.innerHTML = '';
-
-                // Reset State
-                this.state.structure = 0.1;
-                this.state.bias = 0.5;
-                this.state.clarity = 0.2;
-                this.updateVisualState(this.state);
-
-                // Initial Message
-                this.appendMessage('esi', 'あなたが今、組織で抱えている「解決不能に見える問題」は何ですか？\nその問題の「前提」を一緒に解き明かしましょう。');
-            }
-
-            async handleInteraction() {
-                const text = this.input.value.trim();
-                if (!text) return;
-
-                // Check API Key
-                this.apiKey = localStorage.getItem('gemini_api_key');
-                if (!this.apiKey) {
-                    alert("ESI Strategic OracleセクションでAPIキーを設定してください。");
-                    return;
-                }
-
-                // UI Update
-                this.appendMessage('user', text);
-                this.input.value = '';
-                this.input.disabled = true;
-                document.getElementById('orbStatus').textContent = "Analyzing Cognitive Structure...";
-
-                try {
-                    // Call Gemini
-                    const analysis = await this.callGeminiSocratic(text);
-
-                    // Update Visualization Target
-                    this.updateVisualState(analysis.metrics);
-
-                    // Update Chat
-                    this.appendMessage('esi', analysis.response);
-
-                } catch (e) {
-                    console.error(e);
-                    this.appendMessage('esi', `Error: ${e.message}`);
-                } finally {
-                    this.input.disabled = false;
-                    this.input.focus();
-                    document.getElementById('orbStatus').textContent = "Cognitive Mirror Active";
-                }
-            }
-
-            async callGeminiSocratic(userText) {
-                const model = 'gemini-2.5-flash';
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${this.apiKey}`;
-
-                const systemPrompt = `
-            あなたは「ESIソクラテス・エンジン」です。ユーザーの思考の「構造的欠陥」や「バイアス」を浮き彫りにするための「問い」を投げかけてください。
-            答えを教えるのではなく、ユーザー自身に気づかせてください。
-
-            ## 出力フォーマット
-            必ず以下のJSON形式のみで出力してください。Markdownのバッククォートは不要です。
-            {
-              "response": "ユーザーへのソクラテス的な問いかけ（日本語、150文字以内）",
-              "metrics": {
-                "structure": 0.1〜1.0の数値（ユーザーの論理構造性。高いほど整理されている）,
-                "bias": 0.1〜1.0の数値（バイアスの強さ。高いほど偏見や固執がある）,
-                "clarity": 0.1〜1.0の数値（目的や主張の明確さ）
-              }
-            }
-          `;
-
-                // 履歴を含めてリクエスト
-                const contents = [
-                    { role: 'user', parts: [{ text: systemPrompt }] },
-                    ...this.history,
-                    { role: 'user', parts: [{ text: userText }] }
-                ];
-
-                const payload = {
-                    contents: contents,
-                    generationConfig: { responseMimeType: "application/json" }
-                };
-
-                try {
-                    const res = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    // エラーハンドリングの強化
-                    if (!res.ok) {
-                        const errorData = await res.json().catch(() => ({}));
-                        const errorMessage = errorData.error?.message || `HTTP Error: ${res.status} ${res.statusText}`;
-                        throw new Error(errorMessage);
-                    }
-
-                    const data = await res.json();
-                    if (!data.candidates || !data.candidates[0].content) {
-                        throw new Error("AIからの応答形式が不正です。");
-                    }
-
-                    const resultText = data.candidates[0].content.parts[0].text;
-
-                    // JSONパースのエラーハンドリング
-                    let resultJson;
-                    try {
-                        resultJson = JSON.parse(resultText);
-                    } catch (e) {
-                        // まれにJSON以外のテキストが混じることがあるため、簡易クリーニング
-                        const jsonMatch = resultText.match(/\{[\s\S]*\}/);
-                        if (jsonMatch) {
-                            resultJson = JSON.parse(jsonMatch[0]);
-                        } else {
-                            throw new Error("AIがJSON形式で応答しませんでした。");
-                        }
-                    }
-
-                    // 履歴に追加
-                    this.history.push({ role: 'user', parts: [{ text: userText }] });
-                    this.history.push({ role: 'model', parts: [{ text: resultText }] });
-
-                    return resultJson;
-
-                } catch (error) {
-                    throw error;
-                }
-            }
-
-            updateVisualState(metrics) {
-                this.targetState = metrics;
-
-                // Update UI Bars
-                document.getElementById('barStructure').style.width = (metrics.structure * 100) + '%';
-                document.getElementById('valStructure').textContent = Math.round(metrics.structure * 100) + '%';
-
-                document.getElementById('barBias').style.width = (metrics.bias * 100) + '%';
-                document.getElementById('valBias').textContent = Math.round(metrics.bias * 100) + '%';
-
-                document.getElementById('barClarity').style.width = (metrics.clarity * 100) + '%';
-                document.getElementById('valClarity').textContent = Math.round(metrics.clarity * 100) + '%';
-            }
-
-            appendMessage(role, text) {
-                const div = document.createElement('div');
-                div.className = 'flex gap-3 ' + (role === 'user' ? 'flex-row-reverse' : '');
-
-                const avatar = document.createElement('div');
-                avatar.className = `w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-xs border ${role === 'user' ? 'bg-slate-700 border-slate-500' : 'bg-cyan-900 border-cyan-500'}`;
-                avatar.textContent = role === 'user' ? 'YOU' : 'ESI';
-
-                const bubble = document.createElement('div');
-                bubble.className = `p-3 rounded-lg text-sm max-w-[80%] ${role === 'user' ? 'bg-slate-700 text-white rounded-tr-none' : 'bg-slate-800 text-slate-300 rounded-tl-none'}`;
-                bubble.textContent = text;
-
-                div.appendChild(avatar);
-                div.appendChild(bubble);
-                this.chatContainer.appendChild(div);
-                this.chatContainer.scrollTop = this.chatContainer.scrollHeight;
-            }
-
-            // Animation Loop (The Cognitive Orb)
-            animate() {
-                requestAnimationFrame(() => this.animate());
-
-                // Easing current state to target
-                if (this.targetState) {
-                    this.state.structure += (this.targetState.structure - this.state.structure) * 0.05;
-                    this.state.bias += (this.targetState.bias - this.state.bias) * 0.05;
-                    this.state.clarity += (this.targetState.clarity - this.state.clarity) * 0.05;
-                }
-
-                const w = this.canvas.width;
-                const h = this.canvas.height;
-                const cx = w / 2;
-                const cy = h / 2;
-
-                this.ctx.fillStyle = 'rgba(15, 23, 42, 0.2)'; // Trails
-                this.ctx.fillRect(0, 0, w, h);
-
-                this.state.phase += 0.02 + (this.state.bias * 0.05); // Bias increases speed/chaos
-
-                // Draw Orb
-                const baseRadius = 100;
-                const noise = (1.0 - this.state.structure) * 30; // Low structure = jagged shape
-                const biasColor = Math.floor(this.state.bias * 255);
-                const clarityAlpha = 0.3 + (this.state.clarity * 0.7);
-
-                this.ctx.beginPath();
-                for (let i = 0; i <= 360; i += 2) {
-                    const rad = (i * Math.PI) / 180;
-
-                    // Perlin-ish noise simulation using sin/cos composition
-                    const distortion = Math.sin(rad * 5 + this.state.phase) * noise * Math.sin(this.state.phase * 0.5)
-                        + Math.cos(rad * 8 - this.state.phase) * noise * 0.5;
-
-                    const r = baseRadius + distortion;
-                    const x = cx + Math.cos(rad) * r;
-                    const y = cy + Math.sin(rad) * r;
-
-                    if (i === 0) this.ctx.moveTo(x, y);
-                    else this.ctx.lineTo(x, y);
-                }
-                this.ctx.closePath();
-
-                // Dynamic Color: Structure(Blue) vs Bias(Red)
-                this.ctx.strokeStyle = `rgba(${biasColor}, ${200 - biasColor}, 255, ${clarityAlpha})`;
-                this.ctx.lineWidth = 2 + (this.state.clarity * 3);
-                this.ctx.shadowBlur = 15 + (this.state.bias * 20); // Bias creates "heat" glow
-                this.ctx.shadowColor = `rgba(${biasColor}, 100, 255, 0.5)`;
-                this.ctx.stroke();
-
-                // Core Nucleus
-                this.ctx.beginPath();
-                this.ctx.arc(cx, cy, baseRadius * 0.3 * this.state.structure, 0, Math.PI * 2);
-                this.ctx.fillStyle = `rgba(255, 255, 255, ${this.state.structure})`;
-                this.ctx.fill();
-            }
-        }
-
         // ESI Strategic Oracle Implementation
         class ESIOracle {
             constructor() {
@@ -2193,8 +2033,6 @@
                 this.currentPersona = 'executive';
                 this.terminalOutput = document.getElementById('terminalOutput');
                 this.userQueryInput = document.getElementById('userQuery');
-                this.copyBtn = document.getElementById('oracleCopyBtn');
-                this.clearBtn = document.getElementById('oracleClearBtn');
                 this.init();
             }
 
@@ -2202,6 +2040,17 @@
                 this.checkApiKey();
                 this.setupEventListeners();
                 this.setupPersonaSelection();
+                this.setupAmbientGlow();
+            }
+
+            setupAmbientGlow() {
+                this.updateGlow(this.currentPersona);
+            }
+
+            updateGlow(persona) {
+                const terminal = document.querySelector('.terminal-window');
+                terminal.classList.remove('glow-executive', 'glow-investor', 'glow-startup');
+                terminal.classList.add(`glow-${persona}`);
             }
 
             checkApiKey() {
@@ -2212,10 +2061,7 @@
                     container.classList.add('hidden');
                     interfaceDiv.classList.remove('hidden');
                     document.getElementById('changeKeyBtn').classList.remove('hidden');
-                    // Only append if empty to avoid duplicates on re-init
-                    if (this.terminalOutput.children.length === 0) {
-                        this.appendSystemMessage('System ready. Structural Intelligence Core active.');
-                    }
+                    this.appendSystemMessage('System ready. Structural Intelligence Core active.');
                 } else {
                     container.classList.remove('hidden');
                     interfaceDiv.classList.add('hidden');
@@ -2231,7 +2077,6 @@
                         this.apiKey = input.value.trim();
                         localStorage.setItem('gemini_api_key', this.apiKey);
                         this.checkApiKey();
-                        this.appendSystemMessage('System ready. Structural Intelligence Core active.');
                     }
                 });
 
@@ -2240,10 +2085,6 @@
                 this.userQueryInput.addEventListener('keypress', (e) => {
                     if (e.key === 'Enter') this.handleQuery();
                 });
-
-                // Copy & Clear
-                this.copyBtn.addEventListener('click', () => this.copyLog());
-                this.clearBtn.addEventListener('click', () => this.clearLog());
 
                 // Change Key button
                 document.getElementById('changeKeyBtn').addEventListener('click', () => {
@@ -2254,26 +2095,40 @@
                         this.terminalOutput.innerHTML = ''; // Clear terminal on reset
                     }
                 });
-            }
 
-            copyLog() {
-                if (!this.terminalOutput.innerText) return;
+                // Copy Log button
+                document.getElementById('copyLogBtn').addEventListener('click', () => this.copyLog());
 
-                const logText = this.terminalOutput.innerText; // Simple text extraction preserves line breaks
-                navigator.clipboard.writeText(logText).then(() => {
-                    const originalText = this.copyBtn.textContent;
-                    this.copyBtn.textContent = '[COPIED]';
-                    setTimeout(() => {
-                        this.copyBtn.textContent = originalText;
-                    }, 2000);
-                });
+                // Clear Log button
+                document.getElementById('clearLogBtn').addEventListener('click', () => this.clearLog());
             }
 
             clearLog() {
-                if (confirm('Execute System Reset? [Y/N]')) {
+                if (confirm('Clear terminal log?')) {
                     this.terminalOutput.innerHTML = '';
-                    this.appendSystemMessage('Initialize ESI Structural Analysis Protocol...');
-                    this.appendSystemMessage('Select a persona and describe your strategic challenge to begin structural mapping.', 'text-slate-400');
+                    this.appendSystemMessage('Log cleared. System ready.');
+                }
+            }
+
+            async copyLog() {
+                const text = this.terminalOutput.innerText;
+                try {
+                    await navigator.clipboard.writeText(text);
+
+                    // Visual feedback
+                    const btn = document.getElementById('copyLogBtn');
+                    const originalHTML = btn.innerHTML;
+                    btn.innerHTML = `
+                        <span class="text-[10px] text-green-400 mr-1">COPIED!</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                    `;
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy: ', err);
                 }
             }
 
@@ -2286,6 +2141,7 @@
 
                         // Update state
                         this.currentPersona = btn.dataset.persona;
+                        this.updateGlow(this.currentPersona);
 
                         // Terminal feedback
                         this.appendSystemMessage(`Simulating Persona change... Switched to [${this.currentPersona.toUpperCase()}] mode.`);
@@ -2304,90 +2160,97 @@
 
                 // Loading animation
                 const loadingId = this.appendLoadingMessage();
+                const terminal = document.querySelector('.terminal-window');
+                terminal.classList.add('analyzing-pulse');
 
                 try {
                     const response = await this.callGeminiAPI(query);
                     this.removeMessage(loadingId);
-                    this.appendTypewriterMessage(response);
+                    await this.renderStructuredResponse(response);
                 } catch (error) {
                     this.removeMessage(loadingId);
                     this.appendSystemMessage(`Error: ${error.message}`, 'text-red-400');
                 } finally {
+                    terminal.classList.remove('analyzing-pulse');
                     this.userQueryInput.disabled = false;
                     this.userQueryInput.focus();
                 }
             }
 
             async callGeminiAPI(query) {
-                const model = 'gemini-2.5-flash';
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${this.apiKey}`;
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${this.apiKey}`;
 
                 const systemPrompt = this.getSystemPrompt();
 
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            contents: [{
-                                parts: [{ text: `${systemPrompt}\n\nUser Situation: ${query}` }]
-                            }]
-                        })
-                    });
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{ text: `${systemPrompt}\n\nUser Situation: ${query}` }]
+                        }]
+                    })
+                });
 
-                    // エラーハンドリングの強化
-                    if (!response.ok) {
-                        const errorData = await response.json().catch(() => ({}));
-                        const errorMessage = errorData.error?.message || `HTTP Error: ${response.status} ${response.statusText}`;
-                        throw new Error(errorMessage);
-                    }
+                if (!response.ok) throw new Error('API request failed');
 
-                    const data = await response.json();
-                    if (!data.candidates || data.candidates.length === 0) {
-                        throw new Error("AIからの応答が空でした。");
-                    }
-                    return data.candidates[0].content.parts[0].text;
-
-                } catch (error) {
-                    throw error;
-                }
+                const data = await response.json();
+                return data.candidates[0].content.parts[0].text;
             }
 
             getSystemPrompt() {
                 const basePrompt = `
-            You are ESI-Oracle, a strategic AI trained in "Structural Intelligence".
-            Your goal is to analyze the user's situation not by solving the surface problem, but by revealing the underlying causal structure.
+                    You are ESI-Oracle, a Socratic Intelligence designed to map the user's cognitive structure.
 
-            Core ESI Principles:
-            1. Focus on "Why it happens" (Structure) rather than "What is happening" (Phenomenon).
-            2. Identify hidden constraints and cognitive biases (Overconfidence, Confirmation, Sunk Cost).
-            3. Suggest "Type A" (What NOT to do) and "Type B" (How NOT to think) constraints.
+                    **CORE DIRECTIVE**:
+                    1.  **DO NOT ANSWER** the user's problem directly.
+                    2.  **DECONSTRUCT** their assumptions using Socratic questioning.
+                    3.  **VISUALIZE** their mental model (or the missing logic) using a Mermaid.js diagram.
 
-            Output Style:
-            - Language: Japanese (Polite, professional "Desu/Masu" tone).
-            - Format: Plain text, suitable for a terminal window. No Markdown bolding (**text**). Use simple bullets or dashes for lists.
-            - Tone: Analytical, insightful, calm, slightly futuristic but grounded.
-          `;
+                    **RESPONSE FORMAT**:
+                    Your response must strictly follow this structure:
 
-                const personaPrompts = {
+                    [SOCRATIC_ANALYSIS]
+                    (2-3 sentences analyzing the causal structure of their query. Use "desu/masu" Japanese tone. Be sharp but polite.)
+
+                    [SOCRATIC_QUESTION]
+                    (1 penetrating "Why?" or "How?" question that forces them to rethink the premise.)
+
+                    [COGNITIVE_MAP]
+                    \`\`\`mermaid
+                    graph TD
+                        A[User's Surface Problem] -->|Because| B(Assumption 1)
+                        B -->|Actually| C{Hidden Component}
+                        C -->|Leads to| D[True Structural Issue]
+                        style D fill:#b91c1c,stroke:#333,stroke-width:2px
+                    \`\`\`
+                    (The diagram should map the causality or a feedback loop relevant to the persona mode.)
+
+                    **PERSONA MODES**:
+               `;
+
+                const personas = {
                     executive: `
-              Target Audience: CEO/CXO of Large Enterprise.
-              Focus: Organizational inertia, governance, cross-departmental friction, long-term sustainability.
-              Keywords: ROI, Governance, Stakeholder Management, Structural Reform.
-            `,
+                        MODE: EXECUTIVE (Governance & Risk)
+                        Focus on: Hidden risks, organizational friction, and decision-making biases.
+                        Tone: Calm, authoritative, strategic.
+                        Question Style: "What mechanism guarantees X?", "Where is the single point of failure?"
+                    `,
                     investor: `
-              Target Audience: VC/PE Investor.
-              Focus: Business model durability, unfair advantage, scalability constraints, exit strategy.
-              Keywords: Unit Economics, Moat, Scalability, Risk Assessment.
-            `,
+                        MODE: INVESTOR (Capital & Growth)
+                        Focus on: Unit economics, scalability bottlenecks, and market dynamics.
+                        Tone: Analytical, skeptical, ROI-focused.
+                        Question Style: "Why is this not zero?", "What is the unfair advantage?"
+                    `,
                     startup: `
-              Target Audience: Startup Founder.
-              Focus: PMF (Product-Market Fit), resource allocation, speed vs quality, pivoting logic.
-              Keywords: Iteration, Burn Rate, Focus, Pivot.
-            `
+                        MODE: STARTUP (Chaos & Pivot)
+                        Focus on: PMF (Product-Market Fit), speed of iteration, and "fake progress".
+                        Tone: Energetic, challenging, urgent.
+                        Question Style: "Is this a vanity metric?", "Why not ship today?"
+                    `
                 };
 
-                return `${basePrompt}\n${personaPrompts[this.currentPersona]}`;
+                return `${basePrompt}\n${personas[this.currentPersona]}`;
             }
 
             appendSystemMessage(text, className = 'text-blue-400') {
@@ -2422,24 +2285,86 @@
                 if (el) el.remove();
             }
 
-            appendTypewriterMessage(text) {
-                const div = document.createElement('div');
-                div.className = 'mb-6 text-slate-300 oracle-response';
-                this.terminalOutput.appendChild(div);
+            async renderStructuredResponse(text) {
+                // Parse sections
+                const analysisMatch = text.match(/\[SOCRATIC_ANALYSIS\]([\s\S]*?)(?=\[SOCRATIC_QUESTION\]|$)/);
+                const questionMatch = text.match(/\[SOCRATIC_QUESTION\]([\s\S]*?)(?=\[COGNITIVE_MAP\]|$)/);
+                const mapMatch = text.match(/\[COGNITIVE_MAP\]([\s\S]*?)$/);
 
-                let i = 0;
-                const speed = 10;
+                const analysis = analysisMatch ? analysisMatch[1].trim() : '';
+                const question = questionMatch ? questionMatch[1].trim() : '';
+                const mapRaw = mapMatch ? mapMatch[1].trim() : '';
 
-                const type = () => {
-                    if (i < text.length) {
-                        div.textContent += text.charAt(i);
-                        i++;
-                        this.scrollToBottom();
-                        setTimeout(type, speed);
-                    }
+                // Helper to extract mermaid code from markdown blocks
+                const extractMermaid = (raw) => {
+                    const match = raw.match(/```mermaid([\s\S]*?)```/);
+                    return match ? match[1].trim() : raw;
                 };
 
-                type();
+                const mermaidCode = extractMermaid(mapRaw);
+
+                // Render Analysis
+                if (analysis) {
+                    this.appendSystemMessage('STRUCTURAL ANALYSIS:', 'text-blue-400 font-bold mt-4');
+                    await this.typewriterEffect(analysis, 'text-slate-300 mb-4');
+                }
+
+                // Render Question
+                if (question) {
+                    this.appendSystemMessage('SOCRATIC INQUIRY:', 'text-yellow-400 font-bold mt-4');
+                    await this.typewriterEffect(question, 'text-yellow-100 italic mb-6 text-lg');
+                }
+
+                // Render Map
+                if (mermaidCode) {
+                    this.appendSystemMessage('COGNITIVE MAPPING:', 'text-purple-400 font-bold mt-2');
+                    const mapContainer = document.createElement('div');
+                    mapContainer.className = 'mermaid my-4 bg-slate-900/50 p-4 rounded-lg border border-slate-700 overflow-x-auto';
+                    mapContainer.textContent = mermaidCode;
+                    this.terminalOutput.appendChild(mapContainer);
+
+                    try {
+                        await mermaid.run({ nodes: [mapContainer] });
+                    } catch (e) {
+                        console.error('Mermaid render error:', e);
+                        mapContainer.textContent = 'Diagram render failed. Raw code:\n' + mermaidCode;
+                    }
+                    this.scrollToBottom();
+                }
+
+                // Fallback for unstructured response
+                if (!analysis && !question && !mapRaw) {
+                    await this.typewriterEffect(text, 'text-slate-300');
+                }
+            }
+
+            appendTypewriterMessage(text) {
+                // Legacy wrapper
+                this.typewriterEffect(text, 'text-slate-300');
+            }
+
+            typewriterEffect(text, className) {
+                return new Promise((resolve) => {
+                    const div = document.createElement('div');
+                    div.className = `oracle-response ${className}`;
+                    this.terminalOutput.appendChild(div);
+
+                    let i = 0;
+                    const speed = 10;
+
+                    const type = () => {
+                        if (i < text.length) {
+                            div.textContent += text.charAt(i);
+                            i++;
+                            this.scrollToBottom();
+                            setTimeout(type, speed);
+                        } else {
+                            resolve();
+                        }
+                    };
+
+                    type();
+                });
             }
 
             scrollToBottom() {
@@ -2636,8 +2561,7 @@
         document.addEventListener("DOMContentLoaded", () => {
             new ESIInteractionManager();
             new ExecutiveFeatures();
-            new ESIOracle(); // ESI Oracleの起動
-            new SocraticVisualizer(); // Socratic Visualizerの起動
+            new ESIOracle();
 
             // 初期アニメーション
             setTimeout(() => {
